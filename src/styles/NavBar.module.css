@@ -1,0 +1,10 @@
+.NavBar {
+  background-color: #ffffff;
+  border: 1px solid #dadadf;
+}
+
+.logo {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}

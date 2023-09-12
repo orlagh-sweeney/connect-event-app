@@ -2,12 +2,13 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <Navbar expand="md" fixed="top">
+    <Navbar className={styles.NavBar} expand="md" fixed="top">
       <Container>
-        <Navbar.Brand href="#home">ConnectBcn</Navbar.Brand>
+        <Navbar.Brand className={styles.logo} href="#home">ConnectBcn</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
