@@ -4,6 +4,10 @@
   font-family: "Inter", sans-serif;
 }
 
+.Main {
+    padding-top: 81px;
+  }
+
 h1,
 h2 {
   font-family: "Josefin Sans", sans-serif;
