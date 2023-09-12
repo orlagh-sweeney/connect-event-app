@@ -3,8 +3,26 @@
   border: 1px solid #dadadf;
 }
 
-.logo {
+.NavBar .Brand {
+  color: #1a54e6;
   font-family: "Josefin Sans", sans-serif;
   font-size: 30px;
   font-weight: 700;
+}
+
+.NavBar .Brand:hover {
+    color: #1a54e6;
+  }
+
+.NavLink {
+  padding: 10px;
+  color: #1a54e6 !important;
+}
+
+.NavLink:hover {
+    color: #FF9F1C !important;
+  }
+
+.Active i {
+    color: #FF9F1C;
 }
