@@ -11,8 +11,8 @@
 }
 
 .NavBar .Brand:hover {
-    color: #1a54e6;
-  }
+  color: #1a54e6;
+}
 
 .NavLink {
   padding: 10px;
@@ -20,13 +20,13 @@
 }
 
 .NavLink:hover {
-    color: #FF9F1C !important;
-  }
+  color: #ff9f1c !important;
+}
 
 .Active i {
-    color: #FF9F1C;
+  color: #ff9f1c;
 }
 
 .Active span {
-    color: #FF9F1C;
+  color: #ff9f1c;
 }
