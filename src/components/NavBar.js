@@ -5,13 +5,19 @@ import Nav from "react-bootstrap/Nav";
 import styles from "../styles/NavBar.module.css";
 import btnStyles from "../styles/Button.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
@@ -40,7 +46,8 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <Avatar src={currentUser?.profile_image} height={40} /><span>Profile</span>
+        <Avatar src={currentUser?.profile_image} height={40} />
+        <span>Profile</span>
       </NavLink>
       <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
         <i className="fa-solid fa-sign-out-alt"></i>Sign out
@@ -54,27 +61,38 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fa-solid fa-right-to-bracket"></i><span>Sign In</span>
+        <i className="fa-solid fa-right-to-bracket"></i>
+        <span>Sign In</span>
       </NavLink>
       <NavLink
         to="/signup"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fa-solid fa-user-plus"></i><span>Sign Up</span>
+        <i className="fa-solid fa-user-plus"></i>
+        <span>Sign Up</span>
       </NavLink>
     </>
   );
 
   return (
-    <Navbar className={styles.NavBar} expand="md" fixed="top">
+    <Navbar
+      expanded={expanded}
+      className={styles.NavBar}
+      expand="md"
+      fixed="top"
+    >
       <Container>
         <NavLink to="/">
           <Navbar.Brand className={styles.Brand} href="#home">
             ConnectBcn
           </Navbar.Brand>
         </NavLink>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="basic-navbar-nav"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             {currentUser && createEventButton}
@@ -84,7 +102,8 @@ const NavBar = () => {
               className={styles.NavLink}
               activeClassName={styles.Active}
             >
-              <i className="fa-solid fa-house"></i><span>Home</span>
+              <i className="fa-solid fa-house"></i>
+              <span>Home</span>
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
