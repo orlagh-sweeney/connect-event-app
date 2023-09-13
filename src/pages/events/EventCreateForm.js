@@ -133,6 +133,7 @@ function EventCreateForm() {
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
+                className="d-none"
               />
             </Form.Group>
 
