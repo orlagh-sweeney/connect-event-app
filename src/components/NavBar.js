@@ -38,8 +38,9 @@ const NavBar = () => {
       <NavLink
         to={`/profiles/&{currentUser?.profile_id}`}
         className={styles.NavLink}
+        activeClassName={styles.Active}
       >
-        <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
+        <Avatar src={currentUser?.profile_image} height={40} /><span>Profile</span>
       </NavLink>
       <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
         <i className="fa-solid fa-sign-out-alt"></i>Sign out
@@ -83,7 +84,7 @@ const NavBar = () => {
               className={styles.NavLink}
               activeClassName={styles.Active}
             >
-              <i className="fa-solid fa-house"></i>Home
+              <i className="fa-solid fa-house"></i><span>Home</span>
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
