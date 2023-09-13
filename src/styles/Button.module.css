@@ -16,15 +16,15 @@
 }
 
 .Button:hover:active {
-  background-color: #1A54E6 !important;
+  background-color: #1a54e6 !important;
 }
 
 .Button:active {
-  background-color: #1A54E6 !important;
+  background-color: #1a54e6 !important;
 }
 
 .Button:focus {
-  background-color: #1A54E6;
+  background-color: #1a54e6;
 }
 
 .Wide {
@@ -33,11 +33,32 @@
 }
 
 .Light:hover {
-  background-color: #1A54E6;
+  background-color: #1a54e6;
   color: #ffffff;
 }
 
 .Light {
-  background-color: #FF9F1C;
-  color: #0D1216;
+  background-color: #ff9f1c;
+  color: #0d1216;
+}
+
+.Dark:hover {
+  background-color: #ff9f1c;
+  color: #0d1216;
+}
+
+.Dark {
+  background-color: #1a54e6;
+  color: #ffffff;
+}
+
+.NavButton {
+  font-size: 0.9rem;
+  align-self: center;
+  border-radius: 100px;
+  border-color: transparent;
+  padding: 4px 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  min-width: 75px;
 }
