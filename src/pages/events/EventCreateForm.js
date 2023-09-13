@@ -21,9 +21,10 @@ function EventCreateForm() {
     time: "",
     location: "",
     content: "",
+    type: "type",
     image: "",
   });
-  const { title, date, time, location, content, image } = eventData;
+  const { title, date, time, location, content, type, image } = eventData;
 
   const [errors, setErrors] = useState({});
 
@@ -101,6 +102,16 @@ function EventCreateForm() {
                 placeholder="description"
                 name="content"
                 value={content}
+                onChange={handleChange}
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Category</Form.Label>
+              <Form.Control
+                as="select"
+                name="type"
+                value={type}
                 onChange={handleChange}
               />
             </Form.Group>
