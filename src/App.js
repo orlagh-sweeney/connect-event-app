@@ -10,6 +10,7 @@ import EventPage from './pages/events/EventPage';
 import EventsPage from './pages/events/EventsPage';
 
 function App() {
+
   return (
     <div className={styles.App}>
       <NavBar />

@@ -15,9 +15,10 @@ function EventsPage({ message }) {
   const [events, setEvents] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
-//   const [filter, setFilter] = useState("");
+//   const [type, setType] = useState("");
   const [query, setQuery] = useState("");
 
+//   const filter = `events/?attendees__owner__profile=&owner__profile=&type=${type}`
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -36,14 +37,13 @@ function EventsPage({ message }) {
     }, 1000);
 
     return () => {
-        clearTimeout(timer);
-      };
+      clearTimeout(timer);
+    };
   }, [query]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-
       <Form
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
@@ -62,11 +62,10 @@ function EventsPage({ message }) {
           onSubmit={(event) => event.preventDefault()}
         >
           <Form.Control
-            value={filter}
-            onChange={(event) => setFilter(event.target.value)}
+            value={type}
+            onChange={(event) => setType(event.target.value)}
             as="select"
             className="mr-sm-2"
-            placeholder="Filter events"
           >
             <option>sport</option>
             <option>music</option>
