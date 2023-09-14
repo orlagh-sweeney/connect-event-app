@@ -7,6 +7,7 @@ import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import EventCreateForm from './pages/events/EventCreateForm';
 import EventPage from './pages/events/EventPage';
+import EventsPage from './pages/events/EventsPage';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
       <Switch>
-          <Route exact path="/" render={() => <h1>Home page</h1>} />
+          <Route exact path="/" render={() => <EventsPage message="Not results found. Adjust your search query." />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/events/create" render={() => <EventCreateForm />} />
