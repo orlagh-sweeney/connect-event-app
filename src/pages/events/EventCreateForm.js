@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
 
 import Upload from "../../assets/upload.png";
 
@@ -13,6 +14,9 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
+
+import { useHistory } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function EventCreateForm() {
   const [eventData, setEventData] = useState({
@@ -25,6 +29,10 @@ function EventCreateForm() {
     image: "",
   });
   const { title, date, time, location, content, type, image } = eventData;
+
+  const imageInput = useRef(null);
+  
+  const history = useHistory();
 
   const [errors, setErrors] = useState({});
 
@@ -45,8 +53,31 @@ function EventCreateForm() {
     }
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("date", date);
+    formData.append("time", time);
+    formData.append("location", location);
+    formData.append("type", type);
+    formData.append("content", content);
+    formData.append("image", imageInput.current.files[0]);
+
+    try {
+      const { data } = await axiosReq.post("/events/", formData);
+      history.push(`/events/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
+  };
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
         <Col md={{ span: 8, offset: 1 }}>
           <Container className="p-4">
@@ -62,6 +93,11 @@ function EventCreateForm() {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors?.title?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group>
               <Form.Label>Date</Form.Label>
@@ -72,6 +108,11 @@ function EventCreateForm() {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors?.date?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group>
               <Form.Label>Time</Form.Label>
@@ -82,6 +123,11 @@ function EventCreateForm() {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors?.time?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group>
               <Form.Label>Location</Form.Label>
@@ -93,6 +139,11 @@ function EventCreateForm() {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors?.location?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group>
               <Form.Label>Description</Form.Label>
@@ -105,6 +156,11 @@ function EventCreateForm() {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors?.content?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group>
               <Form.Label>Category</Form.Label>
@@ -113,8 +169,22 @@ function EventCreateForm() {
                 name="type"
                 value={type}
                 onChange={handleChange}
-              />
+              >
+                <option>sport</option>
+                <option>music</option>
+                <option>culture</option>
+                <option>books</option>
+                <option>business</option>
+                <option>fitness</option>
+                <option>food and drink</option>
+                <option>games</option>
+              </Form.Control>
             </Form.Group>
+            {errors?.type?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group className="text-center">
               {image ? (
@@ -144,9 +214,15 @@ function EventCreateForm() {
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
+                ref={imageInput}
                 className="d-none"
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
 
             <Button
               className={`${btnStyles.Button} ${btnStyles.Light}`}
