@@ -16,11 +16,13 @@ function EventsPage({ message }) {
   const [hasLoaded, setHasLoaded] = useState(false);
 
 //   const [filter, setFilter] = useState("");
+  const [query, setQuery] = useState("");
+
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const { data } = await axiosReq.get(`/events/`);
+        const { data } = await axiosReq.get(`/events/?search=${query}`);
         setEvents(data);
         setHasLoaded(true);
       } catch (err) {
@@ -29,12 +31,32 @@ function EventsPage({ message }) {
     };
 
     setHasLoaded(false);
-    fetchEvents();
-  }, []);
+    const timer = setTimeout(() => {
+      fetchEvents();
+    }, 1000);
+
+    return () => {
+        clearTimeout(timer);
+      };
+  }, [query]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+
+      <Form
+          className={styles.SearchBar}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <Form.Control
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            type="text"
+            className="mr-sm-2"
+            placeholder="Search events"
+          />
+        </Form>
+
         {/* <Form
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
