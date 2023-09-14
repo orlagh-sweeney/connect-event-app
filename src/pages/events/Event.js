@@ -6,6 +6,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Event = (props) => {
   // destructure props
@@ -27,11 +28,46 @@ const Event = (props) => {
     type,
     updated_at,
     eventPage,
+    setEvents,
   } = props;
 
   // get current user
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  // allows users to attend an event
+  const handleAttend = async () => {
+    try {
+      const { data } = await axiosRes.post("/attendees/", { event: id });
+      setEvents((prevEvents) => ({
+        ...prevEvents,
+        results: prevEvents.results.map((event) => {
+          return event.id === id
+            ? { ...event, attending_count: event.attending_count + 1, attending_id: data.id }
+            : event;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+  // allows users to unattend an event
+  const handleUnattend = async () => {
+    try {
+      await axiosRes.delete(`/attendees/${attending_id}/`);
+      setEvents((prevEvents) => ({
+        ...prevEvents,
+        results: prevEvents.results.map((event) => {
+          return event.id === id
+            ? { ...event, attending_count: event.attending_count - 1, attending_id: null }
+            : event;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.Event}>
@@ -79,26 +115,26 @@ const Event = (props) => {
                   Attending
                 </Button>
               </OverlayTrigger>
-            ) : !currentUser ? (
+            ) : attending_id ? (
               <OverlayTrigger
                 placement="top"
-                overlay={<Tooltip>Login to register for this event</Tooltip>}
+                overlay={<Tooltip>Click to unattend</Tooltip>}
               >
                 <Button
                   className={`${btnStyles.Button} ${btnStyles.Light}`}
-                  onClick={() => {}}
+                  onClick={handleUnattend}
                 >
-                  Not attending
+                  Attending
                 </Button>
               </OverlayTrigger>
-            ) : !attending_id ? (
+            ) : currentUser && !attending_id ? (
               <OverlayTrigger
                 placeement="top"
                 overlay={<Tooltip>Click to attend</Tooltip>}
               >
                 <Button
-                  className={`${btnStyles.Button} ${btnStyles.Light}`}
-                  onClick={() => {}}
+                  className={`${btnStyles.Button} ${btnStyles.Dark}`}
+                  onClick={handleAttend}
                 >
                   Not attending
                 </Button>
@@ -106,13 +142,13 @@ const Event = (props) => {
             ) : (
               <OverlayTrigger
                 placeement="top"
-                overlay={<Tooltip>Click to unattend</Tooltip>}
+                overlay={<Tooltip>Log in to attend this evnet</Tooltip>}
               >
                 <Button
-                  className={`${btnStyles.Button} ${btnStyles.Light}`}
+                  className={`${btnStyles.Button} ${btnStyles.Dark}`}
                   onClick={() => {}}
                 >
-                  Attending
+                  Not attending
                 </Button>
               </OverlayTrigger>
             )}
