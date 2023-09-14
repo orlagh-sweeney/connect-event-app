@@ -8,6 +8,7 @@ import appStyles from "../../App.module.css";
 
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import Event from "./Event";
 
 function EventPage() {
   // store event id from URL
@@ -33,8 +34,8 @@ function EventPage() {
 
   return (
     <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Post component</p>
+      <Col className="py-2 p-0 p-lg-2" lg={{ span: 8, offset: 2 }}>
+        <Event {...event.results[0]} setEvents={setEvent} eventPage />
         <Container className={appStyles.Content}>Comments</Container>
         <Container className={appStyles.Content}>Similar events</Container>
       </Col>

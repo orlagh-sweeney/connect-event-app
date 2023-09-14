@@ -1,0 +1,19 @@
+.Event {
+  border-bottom: 2px solid #0d1216;
+  border-left: #ffffff;
+  border-right: #ffffff;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.Type {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  color: #ffffff;
+}
+
+.Body {
+  padding: 0.5rem;
+}

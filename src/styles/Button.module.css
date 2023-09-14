@@ -59,3 +59,17 @@
   border-color: transparent;
   padding: 4px 10px;
 }
+
+.Type {
+  background-color: #1a54e6;
+  color: #ffffff;
+  font-size: 0.8rem;
+  align-self: center;
+  border-radius: 100px;
+  border-color: transparent;
+  padding: 4px 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  min-width: 75px;
+}
+
