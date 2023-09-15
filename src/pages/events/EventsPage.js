@@ -15,15 +15,15 @@ function EventsPage({ message }) {
   const [events, setEvents] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
-//   const [type, setType] = useState("");
+  const [type, setType] = useState("");
   const [query, setQuery] = useState("");
 
-//   const filter = `events/?attendees__owner__profile=&owner__profile=&type=${type}`
+  const filter = `events/?attendees__owner__profile=&owner__profile=&type=${type}`
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const { data } = await axiosReq.get(`/events/?search=${query}`);
+        const { data } = await axiosReq.get(`/events/?${filter}&search=${query}`);
         setEvents(data);
         setHasLoaded(true);
       } catch (err) {
@@ -39,7 +39,7 @@ function EventsPage({ message }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [query]);
+  }, [query, filter]);
 
   return (
     <Row className="h-100">
@@ -57,7 +57,7 @@ function EventsPage({ message }) {
           />
         </Form>
 
-        {/* <Form
+        <Form
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
         >
@@ -76,7 +76,8 @@ function EventsPage({ message }) {
             <option>food and drink</option>
             <option>games</option>
           </Form.Control>
-        </Form> */}
+        </Form>
+
         {hasLoaded ? (
           <>
             {events.results.length ? (
