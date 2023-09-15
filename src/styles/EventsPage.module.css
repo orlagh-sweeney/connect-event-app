@@ -14,5 +14,12 @@
 
 .SearchIcon:hover {
   cursor: default;
-  color: #cfced3;
+  color: #ff9254;
 }
+
+.FilterMenu {
+    border-radius: 50px;
+    color: #242a3d;
+    margin-bottom: 16px;
+    padding-left: 40px;
+  }

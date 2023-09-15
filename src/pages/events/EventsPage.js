@@ -18,12 +18,14 @@ function EventsPage({ message }) {
   const [type, setType] = useState("");
   const [query, setQuery] = useState("");
 
-  const filter = `events/?attendees__owner__profile=&owner__profile=&type=${type}`
+  const filter = `events/?attendees__owner__profile=&owner__profile=&type=${type}`;
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const { data } = await axiosReq.get(`/events/?${filter}&search=${query}`);
+        const { data } = await axiosReq.get(
+          `/events/?${filter}&search=${query}`
+        );
         setEvents(data);
         setHasLoaded(true);
       } catch (err) {
@@ -42,41 +44,48 @@ function EventsPage({ message }) {
   }, [query, filter]);
 
   return (
-    <Row className="h-100">
+    <Row className="h-100 px-4 px-md-none">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-      <Form
-          className={styles.SearchBar}
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <Form.Control
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            type="text"
-            className="mr-sm-2"
-            placeholder="Search events"
-          />
-        </Form>
-
-        <Form
-          className={styles.SearchBar}
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <Form.Control
-            value={type}
-            onChange={(event) => setType(event.target.value)}
-            as="select"
-            className="mr-sm-2"
-          >
-            <option>sport</option>
-            <option>music</option>
-            <option>culture</option>
-            <option>books</option>
-            <option>business</option>
-            <option>fitness</option>
-            <option>food and drink</option>
-            <option>games</option>
-          </Form.Control>
-        </Form>
+        <div>
+          <div>
+            <p>Find an event:</p>
+            <i className={`fas fa-search ${styles.SearchIcon}`} />
+            <Form
+              className={styles.SearchBar}
+              onSubmit={(event) => event.preventDefault()}
+            >
+              <Form.Control
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                type="text"
+                placeholder="Search events"
+              />
+            </Form>
+          </div>
+          <div>
+            <p>Filter by category:</p>
+            <i className={`fa-solid fa-filter ${styles.SearchIcon}`} />
+            <Form
+              onSubmit={(event) => event.preventDefault()}
+            >
+              <Form.Control
+                value={type}
+                onChange={(event) => setType(event.target.value)}
+                as="select"
+                className={styles.FilterMenu}
+              >
+                <option>sport</option>
+                <option>music</option>
+                <option>culture</option>
+                <option>books</option>
+                <option>business</option>
+                <option>fitness</option>
+                <option>food and drink</option>
+                <option>games</option>
+              </Form.Control>
+            </Form>
+          </div>
+        </div>
 
         {hasLoaded ? (
           <>
