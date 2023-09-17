@@ -10,6 +10,8 @@ import Event from "./Event";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function EventsPage({ message }) {
   const [events, setEvents] = useState({ results: [] });
@@ -90,9 +92,18 @@ function EventsPage({ message }) {
         {hasLoaded ? (
           <>
             {events.results.length ? (
-              events.results.map((event) => (
-                <Event key={event.id} {...event} setEvents={setEvents} />
-              ))
+                <InfiniteScroll 
+                  children={
+                    events.results.map((event) => (
+                        <Event key={event.id} {...event} setEvents={setEvents} />
+                      ))
+                  }
+                  dataLength={events.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!events.next}
+                  next={() => fetchMoreData(events, setEvents)}
+                />
+
             ) : (
               <Container className={appStyles.Content}>
                 <Asset message={message} />
