@@ -7,6 +7,8 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
+import { DropdownMenu } from "../../components/DropdownMenu";
+import { useHistory } from "react-router";
 
 const Event = (props) => {
   // destructure props
@@ -32,6 +34,23 @@ const Event = (props) => {
   // get current user
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const history = useHistory();
+
+  // send the event owner to the event edit form
+  const handleEdit = () => {
+    history.push(`/events/${id}/edit`);
+  };
+
+  // handle delete event request 
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/events/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   // allows users to attend an event
   const handleAttend = async () => {
@@ -87,7 +106,7 @@ const Event = (props) => {
                 </span>
               </div>
               <div className="d-flex align-items-center">
-                <span>delete/edit button</span>
+                {is_owner && <DropdownMenu handleEdit={handleEdit} handleDelete={handleDelete} />}
               </div>
             </Media>
           </Card.Body>
