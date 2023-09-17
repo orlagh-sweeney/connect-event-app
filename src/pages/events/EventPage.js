@@ -59,8 +59,13 @@ function EventPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            comments.results.map(comment => (
-                <Comment key={comment.id} {...comment}/>
+            comments.results.map((comment) => (
+              <Comment
+                key={comment.id}
+                {...comment}
+                setEvent={setEvent}
+                setComments={setComments}
+              />
             ))
           ) : currentUser ? (
             <span>Be the first to leave a comment</span>
