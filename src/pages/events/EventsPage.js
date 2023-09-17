@@ -12,6 +12,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import EventsPanel from "./EventsPanel";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function EventsPage({ message }) {
   const [events, setEvents] = useState({ results: [] });
@@ -21,6 +23,8 @@ function EventsPage({ message }) {
   const [query, setQuery] = useState("");
 
   const filter = `events/?attendees__owner__profile=&owner__profile=&type=${type}`;
+
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -67,9 +71,7 @@ function EventsPage({ message }) {
           <div>
             <p>Filter by category:</p>
             <i className={`fa-solid fa-filter ${styles.SearchIcon}`} />
-            <Form
-              onSubmit={(event) => event.preventDefault()}
-            >
+            <Form onSubmit={(event) => event.preventDefault()}>
               <Form.Control
                 value={type}
                 onChange={(event) => setType(event.target.value)}
@@ -92,18 +94,15 @@ function EventsPage({ message }) {
         {hasLoaded ? (
           <>
             {events.results.length ? (
-                <InfiniteScroll 
-                  children={
-                    events.results.map((event) => (
-                        <Event key={event.id} {...event} setEvents={setEvents} />
-                      ))
-                  }
-                  dataLength={events.results.length}
-                  loader={<Asset spinner />}
-                  hasMore={!!events.next}
-                  next={() => fetchMoreData(events, setEvents)}
-                />
-
+              <InfiniteScroll
+                children={events.results.map((event) => (
+                  <Event key={event.id} {...event} setEvents={setEvents} />
+                ))}
+                dataLength={events.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!events.next}
+                next={() => fetchMoreData(events, setEvents)}
+              />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset message={message} />
@@ -116,9 +115,15 @@ function EventsPage({ message }) {
           </Container>
         )}
       </Col>
-      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <p>Users events</p>
-      </Col>
+      {currentUser ? (
+        <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+          <EventsPanel />
+        </Col>
+      ) : (
+        <Col className="d-none">
+          <>Login to see upcoming events</>
+        </Col>
+      )}
     </Row>
   );
 }
