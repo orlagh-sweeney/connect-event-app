@@ -10,10 +10,18 @@ import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Event from "./Event";
 
+import CommentCreateForm from "../comments/CommentCreateForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 function EventPage() {
   // store event id from URL
   const { id } = useParams();
   const [event, setEvent] = useState({ results: [] });
+
+  // get current user data
+  const currentUser = useCurrentUser();
+  const profile_image = currentUser?.profile_image;
+  const [comments, setComments] = useState({ results: [] });
 
   // fetch event data based on id
   useEffect(() => {
@@ -36,7 +44,19 @@ function EventPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={{ span: 8, offset: 2 }}>
         <Event {...event.results[0]} setEvents={setEvent} eventPage />
-        <Container className={appStyles.Content}>Comments</Container>
+        <Container className={appStyles.Content}>
+          {currentUser ? (
+            <CommentCreateForm
+              profile_id={currentUser.profile_id}
+              profileImage={profile_image}
+              event={id}
+              setEvent={setEvent}
+              setComments={setComments}
+            />
+          ) : comments.results.length ? (
+            "Comments"
+          ) : null}
+        </Container>
         <Container className={appStyles.Content}>Similar events</Container>
       </Col>
     </Row>
