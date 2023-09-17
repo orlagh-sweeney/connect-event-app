@@ -50,7 +50,27 @@
 
 ## Technologies Used
 ### Languages
+- JSX
+- CSS
+
 ### Frameworks, Libraries and Programmes
+- [Balsamiq](https://balsamiq.com/): this was used to create wireframes in the planning stage of the project. 
+- [Font Awesome](https://fontawesome.com/): this was used to add social media icons to footer to enhance user experience. 
+- [Fontpair](https://www.fontpair.co/): this was used to find fonts that compliment each other. 
+- [Google Fonts](https://fonts.google.com/): this was used to import fonts into the website.
+- [Coolers](https://coolors.co/): this was used to create a colour pallete for the website. 
+- [Pexels](https://www.pexels.com/): . 
+- [React](https://react.dev/): front-end end Javascript library to build a component based UI.
+- [React Bootstrap 4](https://react-bootstrap-v4.netlify.app/): this was the CSS framework used to make the site responsive. 
+- [Cloudinary](https://cloudinary.com/): this was used to store static and media files.
+- [Gitpod](https://www.gitpod.io/): this was used to write, commit and to push the code to Github. 
+- [Github](https://github.com/): this was used for version control. 
+- [Heroku](https://dashboard.heroku.com/login): this was used to host and deploy the finished project.
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/): this was used throughout the project to check responsiveness and debug. 
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/): this was used to validate custom CSS code. 
+- [JSHint](https://jshint.com/): this was used to validate Javascript code. 
+- [Responsive Design Checker](https://www.responsivedesignchecker.com/): this was used to check responsiveness on various device sizes. 
+- [Am I Respsonsive?](https://ui.dev/amiresponsive): this was used to create an image to show how the site looks on different device sizes for this README file. 
 
 ## Testing
 ### Testing User Stories
