@@ -27,11 +27,12 @@ function EventPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: event }] = await Promise.all([
+        const [{ data: event }, { data: comments }] = await Promise.all([
           axiosReq.get(`/events/${id}`),
+          axiosReq.get(`comments/?event=${id}`),
         ]);
         setEvent({ results: [event] });
-        console.log(event);
+        setComments(comments);
       } catch (err) {
         console.log(err);
       }
@@ -56,6 +57,18 @@ function EventPage() {
           ) : comments.results.length ? (
             "Comments"
           ) : null}
+          {comments.results.length ? (
+            comments.results.map(comment => (
+                <p key={comment.id}>
+                    {comment.owner}
+                    {comment.content}
+                </p>
+            ))
+          ) : currentUser ? (
+            <span>Be the first to leave a comment</span>
+          ) : (
+            <span>No comments yet</span>
+          )}
         </Container>
         <Container className={appStyles.Content}>Similar events</Container>
       </Col>
