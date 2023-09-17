@@ -12,6 +12,7 @@ import Event from "./Event";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Comment from "../comments/Comment";
 
 function EventPage() {
   // store event id from URL
@@ -59,10 +60,7 @@ function EventPage() {
           ) : null}
           {comments.results.length ? (
             comments.results.map(comment => (
-                <p key={comment.id}>
-                    {comment.owner}
-                    {comment.content}
-                </p>
+                <Comment key={comment.id} {...comment}/>
             ))
           ) : currentUser ? (
             <span>Be the first to leave a comment</span>
