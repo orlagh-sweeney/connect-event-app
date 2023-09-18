@@ -10,14 +10,38 @@ import appStyles from "../../App.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import EventsPanel from "../events/EventsPanel";
+import { useParams } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
+import Event from "../events/Event";
+import { fetchMoreData } from "../../utils/utils";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-function ProfilePage() {
+const ProfilePage = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
+  const { id } = useParams();
+
+  const [profileData, setProfileData] = useState({ results: [] });
+  const [profileEvents, setProfileEvents ] = useState({ results: [] });
 
   useEffect(() => {
-      setHasLoaded(true);
-  }, [])
+    const fetchData = async () => {
+      try {
+        const [{ data: profileData }, { data: profileEvents }] =
+          await Promise.all([
+            axiosReq.get(`/profiles/${id}/`),
+            axiosReq.get(`/events/?owner__profile=${id}`),
+          ]);
+        setProfileData(profileData);
+        setProfileEvents(profileEvents);
+        // hide the loader
+        setHasLoaded(true);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [id]);
 
   const mainProfile = (
     <>
@@ -26,9 +50,10 @@ function ProfilePage() {
           <p>Profile Image</p>
         </Col>
         <Col lg={6}>
-          <h2 className="m-2">Profile username</h2>
+          <h2 className="m-2">{profileData.owner}</h2>
           <p>Member since</p>
-          <p>Bio</p>
+          <p>{profileData.attending_count}</p>
+          <p>{profileData.attended_count}</p>
         </Col>
         <Col lg={3} className="text-lg-right">
         <p>Dropdown menu</p>
@@ -45,11 +70,27 @@ function ProfilePage() {
     </>
   );
 
+  // display events the profile owners has organised 
   const mainProfileEvents = (
     <>
       <hr />
       <p className="text-center">Profile owner's organised events</p>
-      <hr />
+      {profileEvents.results.length ? (
+        <InfiniteScroll
+          children={
+            // if it does, map over posts and render each one
+            profileEvents.results.map((event) => (
+              <Event key={event.id} {...event} setEvents={setProfileEvents} />
+            ))
+          }
+          dataLength={profileEvents.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profileEvents.next}
+          next={() => fetchMoreData(profileEvents, setProfileEvents)}
+        />
+      ) : (
+        <p>No results</p>
+      )}
     </>
   );
 
