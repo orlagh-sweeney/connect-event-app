@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
 
 import appStyles from "../../App.module.css";
+import styles from "../../styles/ProfilePage.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import EventsPanel from "../events/EventsPanel";
@@ -15,6 +16,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Event from "../events/Event";
 import { fetchMoreData } from "../../utils/utils";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { Image } from "react-bootstrap";
 
 const ProfilePage = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -22,7 +24,7 @@ const ProfilePage = () => {
   const { id } = useParams();
 
   const [profileData, setProfileData] = useState({ results: [] });
-  const [profileEvents, setProfileEvents ] = useState({ results: [] });
+  const [profileEvents, setProfileEvents] = useState({ results: [] });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,38 +45,54 @@ const ProfilePage = () => {
     fetchData();
   }, [id]);
 
+  const is_owner = currentUser?.username === profileData.owner;
+
   const mainProfile = (
     <>
-      <Row noGutters className="px-3 text-left">
+      <Row noGutters className="px-3 text-lg-left">
         <Col lg={3} className="text-lg-left">
-          <p>Profile Image</p>
+          <Image
+            className={styles.ProfileImage}
+            roundedCircle
+            src={profileData?.image}
+          />
         </Col>
         <Col lg={6}>
           <h2 className="m-2">{profileData.owner}</h2>
-          <p>Member since</p>
-          <p>{profileData.attending_count}</p>
-          <p>{profileData.attended_count}</p>
+          <p className="m-2">
+            <strong>Member since:</strong> {profileData.created_at}
+          </p>
+          <p className="m-2">
+            <strong>Bio: </strong>
+            {profileData.content}dfdvd
+          </p>
         </Col>
-        <Col lg={3} className="text-lg-right">
-        <p>Dropdown menu</p>
-        </Col>
+        { is_owner && <Col lg={3} className="text-lg-right">
+          <p>Dropdown menu</p>
+        </Col>}
       </Row>
     </>
   );
 
   const mainProfileStats = (
     <>
-      <hr />
-      <p className="text-center">Profile owner's stats</p>
-      <hr />
+      <Row noGutters className="px-3 pt-5 text-lg-left">
+        <Col lg={6} className="text-center">
+          <h2 className={`${styles.Stat} m-2`}>Events Organised</h2>
+          <p>{profileData.events_count}</p>
+        </Col>
+        <Col lg={6} className="text-center">
+          <h2 className={`${styles.Stat} m-2`}>Events Attended</h2>
+          <p>{profileData.attended_count}</p>
+        </Col>
+      </Row>
     </>
   );
 
-  // display events the profile owners has organised 
+  // display events the profile owners has organised
   const mainProfileEvents = (
     <>
-      <hr />
-      <p className="text-center">Profile owner's organised events</p>
+      <h2 className={`${styles.Events} text-left m-2`}>Events by {profileData.owner}:</h2>
       {profileEvents.results.length ? (
         <InfiniteScroll
           children={
@@ -95,7 +113,7 @@ const ProfilePage = () => {
   );
 
   return (
-    <Row>
+    <Row className="pt-2">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <Container className={appStyles.Content}>
           {hasLoaded ? (
@@ -109,13 +127,14 @@ const ProfilePage = () => {
           )}
         </Container>
       </Col>
-      {currentUser &&
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <EventsPanel />
-      </Col>
-      }
+      {is_owner && (
+        // only display if the user is the profile owner
+        <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+          <EventsPanel />
+        </Col>
+      )}
     </Row>
   );
-}
+};
 
 export default ProfilePage;
