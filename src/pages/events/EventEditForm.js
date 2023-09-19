@@ -17,6 +17,7 @@ import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function EventEditForm() {
+
   const [errors, setErrors] = useState({});
 
   const [eventData, setEventData] = useState({
@@ -56,6 +57,11 @@ function EventEditForm() {
     handleMount();
   }, [history, id]);
 
+  // re-format date to display in the edit form 
+  const dayjs = require('dayjs')
+  dayjs().format()
+  const formattedDate = dayjs(date).format('YYYY-MM-DD')
+
   const handleChange = (event) => {
     setEventData({
       ...eventData,
@@ -78,7 +84,7 @@ function EventEditForm() {
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("date", date);
+    formData.append("date", formattedDate);
     formData.append("time", time);
     formData.append("location", location);
     formData.append("type", type);
@@ -127,11 +133,11 @@ function EventEditForm() {
               <Form.Control
                 type="date"
                 name="date"
-                value={date}
+                value={formattedDate}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors?.date?.map((message, idx) => (
+            {errors?.formattedDate?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
