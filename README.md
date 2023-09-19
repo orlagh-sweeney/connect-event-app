@@ -2,6 +2,20 @@
 
 <image src="" width="700px"></image>
 
+Connect Bcn is an event planning React application. Users can carry out the following actions on the site:
+1. Create an account and login.
+2. View, search and filter events. 
+3. Create, edit and delete events
+4. Create, edit and delete comments.
+6. Like/unlike comments.
+7. Attend/unattend events. 
+8. Edit their profile page. 
+
+This project has been developed as my 5th Portfolio Project for my Diploma in Full Stack Software Development - Advanced Frontend with Code Institute. 
+
+The project can be viewed here: [Connect Bcn]()
+
+The back-end repository for this full stack application can be found here: [event-app-api]
 
 ## Table of Contents
 1. [User Experience](#user-experience-ux)
@@ -14,7 +28,21 @@
     - [Wireframes](#wireframes)
     - [Components](#components)
 3. [Features](#features)
-
+    - [NavBar](#navbar)
+    - [Search Bar](#search-bar)
+    - [Events Filter](#events-filter)
+    - [Event Card](#event-card)
+    - [Event Panel](#event-panel)
+    - [Event Page](#event-page)
+    - [Create Event Form](#create-event-form)
+    - [Edit Event Form](#edit-event-form)
+    - [Comments](#comments)
+    - [Profile Page](#profile-page)
+    - [Edit Profile Form](#edit-profile-form)
+    - [Change Passowrd](#change-password)
+    - [Change Username](#change-username)
+    - [Sign up](#sign-up)
+    - [Sign in](#sign-in)
 4. [Technololgies Used](#technologies-used)
     - [Languages](#languages)
     - [Frameworks, Libraries and Programmes](#frameworks-libraries-and-programmes)
@@ -36,17 +64,58 @@
 
 ## User Experience (UX)
 ### Project Goals
+- Build a front end React application using reusbable components.
+- Ensure the website is fully responsive. 
+- Connect to a REST API.
+- Implement full CRUD functionality so users can interact with the website and modify data.
+- Build an intuative website that provides users with feedback when as they interact with the various features.
+- Implement authentification layers to key pages so the site is robust. 
+
 ### User Stories
 ### Future User Stories (to be implemented in the next iteration):
 ### Colour Scheme
 
 ## Planning
 ### Methodology
+The project was planned and implemented following agile methodology principles. GitHub Projects was used to manage and document this process.
+
+The GitHub project can be viewed here: [Connect Event App User Stories]()
+
+EPICS were defined using GitHub milestones and each User Story was assigned to one of the following milestones:
+
+
+User Stories contained a list of Acceptance Criteria and Tasks to support the development of the project.
+Following MoSCoW Priortisation principles, each User Story was assigned a tag from one of the following:
+- Must Have
+- Should Have
+- Could Have
+- Won't Have
+
 ### Models
+Detail on the models used in this product can be found in the back-end repository. 
+
 ### Wireframes
+- [Balsamiq](https://balsamiq) was used to develop wireframes for mobile and desktop in the planning stage of the website. <br>
+
 ### Components
+- The project was built using React and incorporates a series of reusbable react components. 
 
 ## Features
+### NavBar
+### Search Bar
+### Events Filter
+### Event Card
+### Event Panel
+### Event Page
+### Create Event Form
+### Edit Event Form
+### Comments
+### Profile Page
+### Edit Profile Form
+### Change password
+### Change username
+### Sign Up
+### Sign in 
 
 ## Technologies Used
 ### Languages
