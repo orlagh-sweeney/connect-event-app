@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import { useHistory } from "react-router";
+import Tag from "../../components/Tag";
 
 const Event = (props) => {
   // destructure props
@@ -147,7 +148,7 @@ const Event = (props) => {
           <Card.Body className={styles.Body}>
             <Media className="align-items-center justify-content-between">
               <div className="d-flex align-items-center">
-                <Button className={`${btnStyles.Type}`}>{type}</Button>
+                <Tag text={type} />
               </div>
               <div>
                 {is_owner ? (
@@ -236,7 +237,7 @@ const Event = (props) => {
           <Card.Body className={styles.Body}>
             <Media className="align-items-center justify-content-between">
               <div className="d-flex align-items-center">
-                <Button className={`${btnStyles.Type}`}>{type}</Button>
+                <Tag text={type} />
               </div>
               <div>
                 {is_owner ? (
