@@ -5,6 +5,8 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import Asset from "../../components/Asset";
+import { ProfileEditDropdown } from "../../components/DropdownMenu";
+
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/ProfilePage.module.css";
@@ -69,8 +71,8 @@ const ProfilePage = () => {
             {profileData.content}dfdvd
           </p>
         </Col>
-        { is_owner && <Col lg={3} className="text-lg-right">
-          <p>Dropdown menu</p>
+        {is_owner && <Col lg={3} className="text-lg-right">
+        <ProfileEditDropdown id={profileData?.id} />
         </Col>}
       </Row>
     </>
