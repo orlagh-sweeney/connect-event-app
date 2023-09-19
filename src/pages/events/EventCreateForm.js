@@ -19,6 +19,7 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function EventCreateForm() {
+
   const [eventData, setEventData] = useState({
     title: "",
     date: "",
@@ -226,7 +227,7 @@ function EventCreateForm() {
 
             <Button
               className={`${btnStyles.Button} ${btnStyles.Light}`}
-              onClick={() => {}}
+              onClick={() => history.goBack()}
             >
               cancel
             </Button>

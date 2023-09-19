@@ -15,7 +15,7 @@ import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 
 // style improts
-import styles from "../../styles/EventCreateEditForm.module.css";
+import styles from "../../styles/ProfileEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
