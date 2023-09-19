@@ -226,7 +226,7 @@ const Event = (props) => {
             <Media className="align-items-center justify-content-between">
               <div>
                 {title && (
-                  <Card.Title className="text-left">{title}</Card.Title>
+                  <Card.Title className={`${styles.Title} text-left`}>{title}</Card.Title>
                 )}
                 {location && (
                   <Card.Text className="text-left">{location}</Card.Text>

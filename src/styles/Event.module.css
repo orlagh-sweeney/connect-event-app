@@ -1,5 +1,5 @@
 .Event {
-  border-bottom: 1px solid #D8E1E8;
+  border-bottom: 1px solid #d8e1e8;
   border-left: #ffffff;
   border-right: #ffffff;
   border-radius: 2px;
@@ -16,4 +16,10 @@
 
 .Body {
   padding: 0.5rem;
+}
+
+.Title {
+  font-weight: 700;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.5rem;
 }
