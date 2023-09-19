@@ -8,6 +8,7 @@ import Asset from "../../components/Asset";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/ProfilePage.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import EventsPanel from "../events/EventsPanel";
@@ -16,7 +17,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Event from "../events/Event";
 import { fetchMoreData } from "../../utils/utils";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const ProfilePage = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -113,27 +115,42 @@ const ProfilePage = () => {
   );
 
   return (
-    <Row className="pt-2">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <Container className={appStyles.Content}>
-          {hasLoaded ? (
-            <>
-              {mainProfile}
-              {mainProfileStats}
-              {mainProfileEvents}
-            </>
-          ) : (
-            <Asset spinner />
-          )}
-        </Container>
-      </Col>
-      {is_owner && (
-        // only display if the user is the profile owner
-        <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-          <EventsPanel />
-        </Col>
-      )}
-    </Row>
+    <>
+    {currentUser ? (
+            <Row className="pt-2">
+            <Col className="py-2 p-0 p-lg-2" lg={8}>
+              <Container className={appStyles.Content}>
+                {hasLoaded ? (
+                  <>
+                    {mainProfile}
+                    {mainProfileStats}
+                    {mainProfileEvents}
+                  </>
+                ) : (
+                  <Asset spinner />
+                )}
+              </Container>
+            </Col>
+            {is_owner && (
+              // only display if the user is the profile owner
+              <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+                <EventsPanel />
+              </Col>
+            )}
+          </Row>
+    ) : (
+        <Row className="pt-2">
+        <Col className="py-2 px-4 p-0 p-lg-2">
+          <p>You must be signed in to view this page.</p>
+          <Link to={`/signin/`}>
+            <Button className={`${btnStyles.Button} ${btnStyles.Dark}`}>
+                Sign in
+            </Button>
+          </Link>
+          </Col>
+      </Row>
+    )}
+    </>
   );
 };
 
