@@ -14,35 +14,26 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 
 // context imports
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 // style imports
 import btnStyles from "../../styles/Button.module.css";
-import styles from "../../styles/UserPasswordForm.module.css";
+import styles from "../../styles/UsernameForm.module.css";
 
-
-const UserPasswordForm = () => {
-  const history = useHistory();
-  const { id } = useParams();
-  const currentUser = useCurrentUser();
-
-  const [userData, setUserData] = useState({
-    new_password1: "",
-    new_password2: "",
-  });
-  const { new_password1, new_password2 } = userData;
-
+const UsernameForm = () => {
+  const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
 
-  const handleChange = (event) => {
-    setUserData({
-      ...userData,
-      [event.target.name]: event.target.value,
-    });
-  };
+  const history = useHistory();
+  const { id } = useParams();
+
+  const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
   useEffect(() => {
-    if (currentUser?.profile_id?.toString() !== id) {
+    if (currentUser?.profile_id?.toString() === id) {
+      setUsername(currentUser.username);
+    } else {
       // redirect user if they are not the owner of this profile
       history.push("/");
     }
@@ -51,7 +42,13 @@ const UserPasswordForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axiosRes.post("/dj-rest-auth/password/change/", userData);
+      await axiosRes.put("/dj-rest-auth/user/", {
+        username,
+      });
+      setCurrentUser((prevUser) => ({
+        ...prevUser,
+        username,
+      }));
       history.goBack();
     } catch (err) {
       console.log(err);
@@ -63,34 +60,18 @@ const UserPasswordForm = () => {
     <Row className={styles.Row}>
       <Col className="mx-auto py-2 p-md-2" md={{ span: 6, offset: 2 }}>
         <Container className="p-4">
-        <h1 className={styles.Header}>Change password</h1>
+        <h1 className={styles.Header}>Change username</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label>New password</Form.Label>
+              <Form.Label>New username</Form.Label>
               <Form.Control
-                placeholder="new password"
-                type="password"
-                value={new_password1}
-                onChange={handleChange}
-                name="new_password1"
+                placeholder="username"
+                type="text"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
               />
             </Form.Group>
-            {errors?.new_password1?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
-            ))}
-            <Form.Group>
-              <Form.Label>Confirm password</Form.Label>
-              <Form.Control
-                placeholder="confirm new password"
-                type="password"
-                value={new_password2}
-                onChange={handleChange}
-                name="new_password2"
-              />
-            </Form.Group>
-            {errors?.new_password2?.map((message, idx) => (
+            {errors?.username?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
@@ -102,8 +83,8 @@ const UserPasswordForm = () => {
               cancel
             </Button>
             <Button
-              type="submit"
               className={`${btnStyles.Button} ${btnStyles.Light}`}
+              type="submit"
             >
               save
             </Button>
@@ -114,4 +95,4 @@ const UserPasswordForm = () => {
   );
 };
 
-export default UserPasswordForm;
+export default UsernameForm;
