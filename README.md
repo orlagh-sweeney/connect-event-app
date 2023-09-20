@@ -15,7 +15,7 @@ This project has been developed as my 5th Portfolio Project for my Diploma in Fu
 
 The project can be viewed here: [Connect Bcn]()
 
-The back-end repository for this full stack application can be found here: [event-app-api]
+The back-end repository for this full stack application can be found here: [event-app-api](https://github.com/orlagh-sweeney/event-app-api)
 
 ## Table of Contents
 1. [User Experience](#user-experience-ux)
@@ -72,7 +72,48 @@ The back-end repository for this full stack application can be found here: [even
 - Implement authentification layers to key pages so the site is robust. 
 
 ### User Stories
-### Future User Stories (to be implemented in the next iteration):
+#### Navigation and Authentication
+1. As a site user I can view a navbar from every page so that I can easily navigate between pages.
+2. As a logged out user I can see sign in and sign up options so that I can sign in/sign up.
+3. As a site user I can view a users avatar so that I can easily identify users of the application.
+4. As a site user I can navigate through pages quickly so that I can view content seamlessly without page refresh.
+5. As a site user I can register an account so that I can create and join events.
+6. As a site user I can login so that I can use the features of the application.
+7. As a site user I can maintain my logged-in status until I choose to log out so that my user experience is not compromised.
+
+#### Create & Attend Events
+8. As a logged in user I can create events so that people can join my event.
+9. As a site user I can view event so that I can see more information about it.
+10. As a logged in user I can choose to attend and event or not so that the organiser know how many people are going.
+
+#### The EventsPage
+11. As a site user I can view events in order of the closet start date so that I can see if anything is on soon.
+12. As a site user I can search events by keyword so that I can find events I am interested in.
+13. As a site user I can filters event by type so that I can narrow down search results.
+14. As a site user I can continuously scroll through events so that I don't have to click on 'next page'.
+15. As a logged in user I can see my upcoming so that I can find them easily.
+
+#### The EventPage
+16. As a event owner I can edit an event so that I can ensure it is up-to-date.
+17. As a event owner I can delete an event so that it can be cancelled.
+18. As a logged in user I can create, edit and delete comments so that I can interact events.
+19. As a logged in user I can like and unlike comments so that I can show support for the conversation.
+20. As a site user I can see similar events so that I can have increased choice of events to attend.
+
+#### The ProfilePage
+21. As a logged in use I can see other peoples profiles so that I can learn more about them.
+22. As a logged in user I can see stats on a user profile so that I can learn more about them.
+23. As a logged user I can see a list of events a user has organised so that I can attend more of their events.
+24. As a profile owner I can edit my profile so that I can update my data.
+25. As a profile owner I can see my upcoming events so that I can keep track of what I am attending.
+
+#### Future User Stories 
+The following user stories will be implemented in the next iteration:
+1. As a logged in user I can save events so that I can decide later if I want to go.
+2. As a profile owner I can see my saved events so that I can review them.
+3. As a logged in user I can see suggested events based on my interests so that I can join them.
+4. As a logged in user I can see suggested events based on my interests so that I can join them
+
 ### Colour Scheme
 
 ## Planning
@@ -82,7 +123,11 @@ The project was planned and implemented following agile methodology principles. 
 The GitHub project can be viewed here: [Connect Event App User Stories]()
 
 EPICS were defined using GitHub milestones and each User Story was assigned to one of the following milestones:
-
+- Navigation and Authentication
+- Create & Attend Events
+- The EventsPage
+- The EventPage
+- The ProfilePage
 
 User Stories contained a list of Acceptance Criteria and Tasks to support the development of the project.
 Following MoSCoW Priortisation principles, each User Story was assigned a tag from one of the following:
@@ -92,7 +137,7 @@ Following MoSCoW Priortisation principles, each User Story was assigned a tag fr
 - Won't Have
 
 ### Models
-Detail on the models used in this product can be found in the back-end repository. 
+Detail on the models used in this product can be found in the back-end repository: [event-app-api](https://github.com/orlagh-sweeney/event-app-api) 
 
 ### Wireframes
 - [Balsamiq](https://balsamiq) was used to develop wireframes for mobile and desktop in the planning stage of the website. <br>
@@ -147,6 +192,63 @@ Detail on the models used in this product can be found in the back-end repositor
 
 ## Testing
 ### Testing User Stories
+#### Navigation and Authentication
+1. As a site user I can view a navbar from every page so that I can easily navigate between pages.
+    - The navbar is accessible on each page.
+    - The navbar is reponsive on mobile.
+    - When a user clicks a navlink the mobile navbar closes.
+2. As a logged out user I can see sign in and sign up options so that I can sign in/sign up.
+    - Unauthenticated users can see the sign in and sign up navlinks.
+    - Logged in users can see the sign out button. 
+3. As a site user I can view a users avatar so that I can easily identify users of the application.
+    - Users can upload as avatar when they sign up.
+    - The profile avatar is visible for other site users. 
+4. As a site user I can navigate through pages quickly so that I can view content seamlessly without page refresh.
+    - When users click a navlink components seamlessly render without the entire webpage reloading. 
+5. As a site user I can register an account so that I can create and join events.
+    - Site users can access the sign in page.
+    - The sign in form can be filled in. 
+    - On submit an account is created and the user has access relevant features. 
+6. As a site user I can login so that I can use the features of the application.
+    - Site users can access the login page via the navbar. 
+    - Site users can log in using the sign in form. 
+    - Once logged in they can access features for logged in users.
+7. As a site user I can maintain my logged-in status until I choose to log out so that my user experience is not compromised.
+    - Access tokens allow users to remain logged in. 
+
+#### Create & Attend Events
+8. As a logged in user I can create events so that people can join my event.
+    - Logged in users can see the create event button in the navbar. 
+    - When the create event button is clicked the user is brought to the create event form.
+    - When a valid form is submitted the user is redirected to their new event page. 
+9. As a site user I can view event so that I can see more information about it.
+    - Site users can visit event an page and read futher information about it.
+    - The correct event date loads when a user visits an event page. 
+10. As a logged in user I can choose to attend and event or not so that the organiser know how many people are going.
+    - Logged in users can click on the attending button to attend or unattend events.
+    - Logged out users are prompted to sign in if they want to register for an event.
+
+#### The EventsPage
+11. As a site user I can view events in order of the closet start date so that I can see if anything is on soon.
+12. As a site user I can search events by keyword so that I can find events I am interested in.
+13. As a site user I can filters event by type so that I can narrow down search results.
+14. As a site user I can continuously scroll through events so that I don't have to click on 'next page'.
+15. As a logged in user I can see my upcoming so that I can find them easily.
+
+#### The EventPage
+16. As a event owner I can edit an event so that I can ensure it is up-to-date.
+17. As a event owner I can delete an event so that it can be cancelled.
+18. As a logged in user I can create, edit and delete comments so that I can interact events.
+19. As a logged in user I can like and unlike comments so that I can show support for the conversation.
+20. As a site user I can see similar events so that I can have increased choice of events to attend.
+
+#### The ProfilePage
+21. As a logged in use I can see other peoples profiles so that I can learn more about them.
+22. As a logged in user I can see stats on a user profile so that I can learn more about them.
+23. As a logged user I can see a list of events a user has organised so that I can attend more of their events.
+24. As a profile owner I can edit my profile so that I can update my data.
+25. As a profile owner I can see my upcoming events so that I can keep track of what I am attending.
+
 ### Code Validation
 ### Accessibility
 ### Device Testing
