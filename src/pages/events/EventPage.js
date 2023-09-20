@@ -18,6 +18,7 @@ import Comment from "../comments/Comment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
+import SimilarEvents from "./SimilarEvents";
 
 function EventPage() {
   // store event id from URL
@@ -64,8 +65,8 @@ function EventPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            <InfiniteScroll 
-            children={comments.results.map((comment) => (
+            <InfiniteScroll
+              children={comments.results.map((comment) => (
                 <Comment
                   key={comment.id}
                   {...comment}
@@ -84,7 +85,10 @@ function EventPage() {
             <span>No comments yet</span>
           )}
         </Container>
-        <Container className={appStyles.Content}>Similar events</Container>
+        <hr/>
+        <Container className={appStyles.Content}>
+          <SimilarEvents {...event.results[0]} setEvents={setEvent} />
+        </Container>
       </Col>
     </Row>
   );
