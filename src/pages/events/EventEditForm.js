@@ -240,7 +240,7 @@ function EventEditForm() {
 
             <Button
               className={`${btnStyles.Button} ${btnStyles.Light}`}
-              onClick={() => {}}
+              onClick={() => history.goBack()}
             >
               cancel
             </Button>
