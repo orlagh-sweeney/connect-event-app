@@ -14,6 +14,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import EventsPanel from "./EventsPanel";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { categories } from "../../utils/categories";
 
 function EventsPage({ message }) {
   const [events, setEvents] = useState({ results: [] });
@@ -78,14 +79,11 @@ function EventsPage({ message }) {
                 as="select"
                 className={styles.FilterMenu}
               >
-                <option>sport</option>
-                <option>music</option>
-                <option>culture</option>
-                <option>books</option>
-                <option>business</option>
-                <option>fitness</option>
-                <option>food and drink</option>
-                <option>games</option>
+                {categories.map((category) => (
+                  <option key={category.key} value={category.key}>
+                    {category.value}
+                  </option>
+                ))}
               </Form.Control>
             </Form>
           </div>

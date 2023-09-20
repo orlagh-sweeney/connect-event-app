@@ -7,7 +7,6 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 
-
 import styles from "../../styles/EventCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -15,9 +14,9 @@ import { Image } from "react-bootstrap";
 
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { categories } from "../../utils/categories";
 
 function EventEditForm() {
-
   const [errors, setErrors] = useState({});
 
   const [eventData, setEventData] = useState({
@@ -57,10 +56,10 @@ function EventEditForm() {
     handleMount();
   }, [history, id]);
 
-  // re-format date to display in the edit form 
-  const dayjs = require('dayjs')
-  dayjs().format()
-  const formattedDate = dayjs(date).format('YYYY-MM-DD')
+  // re-format date to display in the edit form
+  const dayjs = require("dayjs");
+  dayjs().format();
+  const formattedDate = dayjs(date).format("YYYY-MM-DD");
 
   const handleChange = (event) => {
     setEventData({
@@ -199,14 +198,11 @@ function EventEditForm() {
                 value={type}
                 onChange={handleChange}
               >
-                <option>sport</option>
-                <option>music</option>
-                <option>culture</option>
-                <option>books</option>
-                <option>business</option>
-                <option>fitness</option>
-                <option>food and drink</option>
-                <option>games</option>
+                {categories.map((category) => (
+                  <option key={category.key} value={category.key}>
+                    {category.value}
+                  </option>
+                ))}
               </Form.Control>
             </Form.Group>
             {errors?.type?.map((message, idx) => (
@@ -216,18 +212,18 @@ function EventEditForm() {
             ))}
 
             <Form.Group className="text-center">
-                  <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
-                  </figure>
-                  <div>
-                    <Form.Label
-                      className={`${btnStyles.Button} ${btnStyles.Dark} btn`}
-                      htmlFor="image-upload"
-                    >
-                      Change the image
-                    </Form.Label>
-                  </div>
-              
+              <figure>
+                <Image className={appStyles.Image} src={image} rounded />
+              </figure>
+              <div>
+                <Form.Label
+                  className={`${btnStyles.Button} ${btnStyles.Dark} btn`}
+                  htmlFor="image-upload"
+                >
+                  Change the image
+                </Form.Label>
+              </div>
+
               <Form.File
                 id="image-upload"
                 accept="image/*"

@@ -17,9 +17,9 @@ import { Image } from "react-bootstrap";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { categories } from "../../utils/categories";
 
 function EventCreateForm() {
-
   const [eventData, setEventData] = useState({
     title: "",
     date: "",
@@ -32,7 +32,7 @@ function EventCreateForm() {
   const { title, date, time, location, content, type, image } = eventData;
 
   const imageInput = useRef(null);
-  
+
   const history = useHistory();
 
   const [errors, setErrors] = useState({});
@@ -171,14 +171,11 @@ function EventCreateForm() {
                 value={type}
                 onChange={handleChange}
               >
-                <option>sport</option>
-                <option>music</option>
-                <option>culture</option>
-                <option>books</option>
-                <option>business</option>
-                <option>fitness</option>
-                <option>food and drink</option>
-                <option>games</option>
+                {categories.map((category) => (
+                  <option key={category.key} value={category.key}>
+                    {category.value}
+                  </option>
+                ))}
               </Form.Control>
             </Form.Group>
             {errors?.type?.map((message, idx) => (
