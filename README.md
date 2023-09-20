@@ -230,24 +230,56 @@ Detail on the models used in this product can be found in the back-end repositor
 
 #### The EventsPage
 11. As a site user I can view events in order of the closet start date so that I can see if anything is on soon.
+    - Events are loaded so that the user see the events which are taking place at the nearest date first.  
 12. As a site user I can search events by keyword so that I can find events I am interested in.
+    - Site user can type in the search bar on the home page.
+    - The search by searches against event names and evnet owners to display relevant results. 
 13. As a site user I can filters event by type so that I can narrow down search results.
+    - Site users can use the filter dropdowm menu and filter event by category.
+    - The correct type of events load for each category. 
 14. As a site user I can continuously scroll through events so that I don't have to click on 'next page'.
+    - Events continously load from the API without the need to click next.
+    - The user can continously scroll through events. 
 15. As a logged in user I can see my upcoming so that I can find them easily.
+    - Logged in users can see an event panel.
+    - The event panel shows the 3 nearest events that they are attending. 
 
 #### The EventPage
 16. As a event owner I can edit an event so that I can ensure it is up-to-date.
+    - Event owners can access the edit event button.
+    - The edit event button loads a pre-populated form with the existing event data.
+    - On submit the event data is updated correctly.
 17. As a event owner I can delete an event so that it can be cancelled.
+    - Event owner can access the delete event button.
+    - The event is deleted from the databased.
 18. As a logged in user I can create, edit and delete comments so that I can interact events.
+    - Logged in user can access the create comment form. 
+    - Comment owner can access comment edit and delete buttons.
 19. As a logged in user I can like and unlike comments so that I can show support for the conversation.
+    - Logged in user can use the like button to like and unlike comments.
+    - Logged out users are prompted to sign in to like a comment. 
 20. As a site user I can see similar events so that I can have increased choice of events to attend.
+    - Site users can see a list of similar events. 
+    - Correct event types are loaded in the similar events component. 
 
 #### The ProfilePage
 21. As a logged in use I can see other peoples profiles so that I can learn more about them.
+    - Logged in users can access user profile pages.
+    - The correct user profile data loads. 
 22. As a logged in user I can see stats on a user profile so that I can learn more about them.
+    - Logged in user can see stats for each profile. 
+    - The total number of evnets organised and attended are displayed. 
 23. As a logged user I can see a list of events a user has organised so that I can attend more of their events.
+    - Logged in users can see all the events that a user has organised. 
+    - Uses can choose to attend these events. 
 24. As a profile owner I can edit my profile so that I can update my data.
+    - Profile owners can access the profile drop down menu.
+    - The edit password button brings the profile owner to the edit password form. 
+    - The edit username button brings the profile owner to the edit username form.
+    - The edit profile button brings the profile owner to the edit profile form.
 25. As a profile owner I can see my upcoming events so that I can keep track of what I am attending.
+    - Profile owner can see a list of events they are attending.
+    - The event panel display the correct event for the profile owner. 
 
 ### Code Validation
 ### Accessibility
