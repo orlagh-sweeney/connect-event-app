@@ -147,20 +147,64 @@ Detail on the models used in this product can be found in the back-end repositor
 
 ## Features
 ### NavBar
+- The website has a responsive navbar component. 
+- The navbar conditionally renders navlink based on the user logged in status.
+- Logged out users can see Home, Sign in and Sign up navlink.
+- Logged in user can see Home, Create Event, Profile and Sign out navlinks. 
+
 ### Search Bar
+- The home page has a search bar where user can type a query which is checked against event names and event owners. 
+
 ### Events Filter
+- The home page has a filter menu which filters events based on event type. 
+
 ### Event Card
-### Event Panel
+- Event details are displayed in a react bootstrap card: this is the Event component. 
+- The level of detail differs depending on whether the card is being displayed on the EventPage or EventsPage. 
+
+### Events Panel
+- The EventsPanel component is only visible to logged in users.
+- It displays 3 upcoming events that the user is attending.
+- This panel is used on the EventsPage and ProfilePage.  
+
 ### Event Page
+- The EventPage component loads event specific data based on event id.
+- The EventPage displays the Comment, Event and SimilarEvents components. 
+
+### Similar Events 
+- Similar events are displayed using react bootstrap cards: this is the SimilarEvents component.m
+- Up to 3 events will be shown. 
+- The user can click on the event which will bring them to the relevant event page.
+
 ### Create Event Form
+- This form allows users to create an event. 
+
 ### Edit Event Form
+- This pre-populated form allows event owners to edit their event. 
+
 ### Comments
+- The comment form allows users to add a comment underneath an event. 
+- The edit comment form is a pre-populated form that allows comment owners to edit their comments. 
+
 ### Profile Page
+- Each user has a unique profile page. 
+- The profile page diplays user information, user stats and events that the profile owner has organised. 
+- The profile owner can also see the Events Panel display 3 upcoming events. 
+
 ### Edit Profile Form
+- This form allows users to edit their profile. 
+
 ### Change password
+- This form allows users to change their password. 
+
 ### Change username
+- This form allows users to change their username. 
+
 ### Sign Up
+- This form allows users to create an account. 
+
 ### Sign in 
+- This form allows users to login to the application. 
 
 ## Technologies Used
 ### Languages
@@ -287,6 +331,56 @@ Detail on the models used in this product can be found in the back-end repositor
 ### Browser Testing
 ### Automated Tests
 ### Feature Testing
+
+#### NavBar: 
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Search Bar:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Events Filter:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Event Card:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Events Panel:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Event Page:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Similar Events:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Create Event Form:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Edit Event Form:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Comments:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Profile Page:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Edit Profile Form:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Change password:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Change username:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Sign Up:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Sign in:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+
 ### Bugs
 
 ## Deployment
