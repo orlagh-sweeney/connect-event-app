@@ -52,7 +52,7 @@ function EventPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={{ span: 8, offset: 2 }}>
         <Event {...event.results[0]} setEvents={setEvent} eventPage />
-        <Container className={appStyles.Content}>
+        <Container>
           {currentUser ? (
             <CommentCreateForm
               profile_id={currentUser.profile_id}
@@ -80,9 +80,9 @@ function EventPage() {
               next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
-            <span>Be the first to leave a comment</span>
+            <div className="text-center my-2">Be the first to leave a comment!</div>
           ) : (
-            <span>No comments yet</span>
+            <div className="text-center my-2">No comments yet</div>
           )}
         </Container>
         <hr/>
