@@ -140,8 +140,7 @@ const Event = (props) => {
           </Card.Body>
           <Card.Body className={styles.Body}>
             <Media>
-              <div>
-                <span>{content}</span>
+              <div className="text-left">{content}
               </div>
             </Media>
           </Card.Body>
