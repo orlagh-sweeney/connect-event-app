@@ -9,7 +9,6 @@ import { DropdownMenu } from "../../components/DropdownMenu";
 import CommentEditForm from "./CommentEditForm";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
-
 const Comment = (props) => {
   const {
     profile_id,
@@ -92,30 +91,19 @@ const Comment = (props) => {
   };
 
   return (
-    <div className="px-4">
+    <div className="px-2">
       <hr />
       <Media>
         <Link to={`/profiles/${profile_id}`}>
           <Avatar src={profile_image} />
         </Link>
-        <Media.Body className="align-self-center ml-2">
+        <Media.Body className="align-self-center ml-1">
           <span className={styles.Owner}>{owner}</span>
+          <br />
           <span className={styles.Date}>{updated_at}</span>
-          {showEditForm ? (
-            <CommentEditForm
-              id={id}
-              profile_id={profile_id}
-              content={content}
-              profileImage={profile_image}
-              setComments={setComments}
-              setShowEditForm={setShowEditForm}
-            />
-          ) : (
-            <p>{content}</p>
-          )}
         </Media.Body>
         <Media.Body className="text-right">
-        {is_owner ? (
+          {is_owner ? (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>You can't like your own comment!</Tooltip>}
@@ -145,6 +133,20 @@ const Comment = (props) => {
             handleEdit={() => setShowEditForm(true)}
             handleDelete={handleDelete}
           />
+        )}
+      </Media>
+      <Media className="ml-6">
+        {showEditForm ? (
+          <CommentEditForm
+            id={id}
+            profile_id={profile_id}
+            content={content}
+            profileImage={profile_image}
+            setComments={setComments}
+            setShowEditForm={setShowEditForm}
+          />
+        ) : (
+          <p className={styles.Content}>{content}</p>
         )}
       </Media>
     </div>
