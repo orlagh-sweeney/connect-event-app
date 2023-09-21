@@ -1,14 +1,22 @@
+// react imports 
 import React from "react";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+
+// api imports
+import { axiosRes } from "../../api/axiosDefaults";
+
+// style imports
 import styles from "../../styles/Event.module.css";
+
+// react boostrap imports 
 import Button from "react-bootstrap/Button";
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 
-import { Link } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
+// component imports
 import { DropdownMenu } from "../../components/DropdownMenu";
-import { useHistory } from "react-router";
 import Tag from "../../components/Tag";
 
 const Event = (props) => {
@@ -17,7 +25,6 @@ const Event = (props) => {
     id,
     owner,
     profile_id,
-    profile_image,
     comments_count,
     attending_count,
     attending_id,

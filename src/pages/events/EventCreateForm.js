@@ -1,25 +1,31 @@
+// react imports
 import React, { useRef, useState } from "react";
+import { useHistory } from "react-router";
 
+// api imports
+import { axiosReq } from "../../api/axiosDefaults";
+
+// style imports 
+import styles from "../../styles/EventCreateEditForm.module.css";
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
+
+// react bootstrap imports
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-
-import Upload from "../../assets/upload.png";
-
-import styles from "../../styles/EventCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
 
-import { useHistory } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+// component imports 
+import Upload from "../../assets/upload.png";
 import { categories } from "../../utils/categories";
+import Asset from "../../components/Asset";
 
 function EventCreateForm() {
+  // store form values and destructure useState hook
   const [eventData, setEventData] = useState({
     title: "",
     date: "",
@@ -29,6 +35,8 @@ function EventCreateForm() {
     type: "type",
     image: "",
   });
+
+  // destructure eventData 
   const { title, date, time, location, content, type, image } = eventData;
 
   const imageInput = useRef(null);
@@ -37,13 +45,15 @@ function EventCreateForm() {
 
   const [errors, setErrors] = useState({});
 
+  // handle changes in input fields
   const handleChange = (event) => {
     setEventData({
       ...eventData,
       [event.target.name]: event.target.value,
     });
   };
-
+    
+  // handle change in image field
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -54,6 +64,8 @@ function EventCreateForm() {
     }
   };
 
+  // submit form data to api 
+  // redirect users to newly created event page
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

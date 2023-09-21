@@ -1,20 +1,33 @@
+// react imports 
 import React, { useEffect, useState } from "react";
-import { Card, Container } from "react-bootstrap";
-import { axiosReq } from "../../api/axiosDefaults";
-import Asset from "../../components/Asset";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
+// api imports
+import { axiosReq } from "../../api/axiosDefaults";
+
+// react bootstrap imports
+import { Card, Container } from "react-bootstrap";
+
+// style imports
 import styles from "../../styles/SimilarEvents.module.css";
 
+// component imports 
+import Asset from "../../components/Asset";
+
 const SimilarEvents = (props) => {
+  // destructure props
   const { id, type} = props;
 
+  // store similar events 
   const [eventData, setEventData] = useState({
     similarEvents: { results: [] },
   });
   const { similarEvents } = eventData;
 
+  // api event type filter
   const filter = `events/?attendees__owner__profile=&owner__profile=&type=${type}`;
 
+  // get events based on event type
   useEffect(() => {
     const handleMount = async () => {
       try {

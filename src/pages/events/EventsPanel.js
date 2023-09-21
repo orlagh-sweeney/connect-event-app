@@ -1,20 +1,35 @@
+// react imports
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import { axiosReq } from "../../api/axiosDefaults";
-import appStyles from "../../App.module.css";
-import Asset from "../../components/Asset";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
+// api imports
+import { axiosReq } from "../../api/axiosDefaults";
+
+// react bootstrap imports
+import { Container } from "react-bootstrap";
+
+// style imports 
+import appStyles from "../../App.module.css";
 import styles from "../../styles/EventsPanel.module.css";
 
+// componet imports 
+import Asset from "../../components/Asset";
+
+// context imports 
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 const EventsPanel = () => {
+  // store upcomingEvents
   const [eventData, setEventData] = useState({
     upcomingEvents: { results: [] },
   });
   const { upcomingEvents } = eventData;
+
+  // get current user
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
 
+  // get events that the current user is attending 
   useEffect(() => {
     const handleMount = async () => {
       try {

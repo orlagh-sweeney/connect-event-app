@@ -1,24 +1,31 @@
+// react imports
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
+// api imports 
+import { axiosReq } from "../../api/axiosDefaults";
+
+// style imports
+import appStyles from "../../App.module.css";
+
+// react bootstrap imports
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-import appStyles from "../../App.module.css";
-
-import { useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+// component imports
 import Event from "./Event";
-
-import CommentCreateForm from "../comments/CommentCreateForm";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import SimilarEvents from "./SimilarEvents";
 import Comment from "../comments/Comment";
+import CommentCreateForm from "../comments/CommentCreateForm";
+
+// context imports
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 // imports for infinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
-import SimilarEvents from "./SimilarEvents";
 
 function EventPage() {
   // store event id from URL

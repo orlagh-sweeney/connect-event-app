@@ -1,32 +1,46 @@
+// react importss
 import React, { useEffect, useState } from "react";
+
+// api imports 
+import { axiosReq } from "../../api/axiosDefaults";
+
+// react bootstrap impots
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
+// style imports 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/EventsPage.module.css";
-import Event from "./Event";
 
-import { axiosReq } from "../../api/axiosDefaults";
+// component imports 
+import Event from "./Event";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../../utils/utils";
 import EventsPanel from "./EventsPanel";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { categories } from "../../utils/categories";
+import { fetchMoreData } from "../../utils/utils";
+
+// context imports 
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function EventsPage({ message }) {
+  // store events
   const [events, setEvents] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
+  // store type and query values
   const [type, setType] = useState("");
   const [query, setQuery] = useState("");
 
+  // api filter for event type
   const filter = `events/?attendees__owner__profile=&owner__profile=&type=${type}`;
 
+  // get current user
   const currentUser = useCurrentUser();
 
+  // fetch events from api 
   useEffect(() => {
     const fetchEvents = async () => {
       try {

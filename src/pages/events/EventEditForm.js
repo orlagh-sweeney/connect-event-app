@@ -1,24 +1,29 @@
+// react imports
 import React, { useRef, useState, useEffect } from "react";
+import { useHistory, useParams } from "react-router";
 
+// api imports
+import { axiosReq } from "../../api/axiosDefaults";
+
+// react bootstrap imports
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
+import { Image } from "react-bootstrap";
 
+// style imports
 import styles from "../../styles/EventCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { Image } from "react-bootstrap";
 
-import { useHistory, useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+// component imports
 import { categories } from "../../utils/categories";
 
 function EventEditForm() {
-  const [errors, setErrors] = useState({});
-
+  // store form values and destructure useState hook
   const [eventData, setEventData] = useState({
     title: "",
     date: "",
@@ -28,11 +33,15 @@ function EventEditForm() {
     type: "",
     image: "",
   });
+
+  // destructure eventData 
   const { title, date, time, location, content, type, image } = eventData;
 
   const imageInput = useRef(null);
 
   const history = useHistory();
+
+  const [errors, setErrors] = useState({});
 
   // destructure id from url to load event data
   const { id } = useParams();
@@ -61,6 +70,7 @@ function EventEditForm() {
   dayjs().format();
   const formattedDate = dayjs(date).format("YYYY-MM-DD");
 
+  // handle changes in input fields
   const handleChange = (event) => {
     setEventData({
       ...eventData,
@@ -68,6 +78,7 @@ function EventEditForm() {
     });
   };
 
+  // handle change in image field
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -78,6 +89,8 @@ function EventEditForm() {
     }
   };
 
+  // submit form data to api 
+  // redirect users to the updated event page
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
