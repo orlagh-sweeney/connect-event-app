@@ -79,6 +79,7 @@ function EventsPage({ message }) {
                 as="select"
                 className={styles.FilterMenu}
               >
+                <option value={""}>All</option>
                 {categories.map((category) => (
                   <option key={category.key} value={category.key}>
                     {category.value}
