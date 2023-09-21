@@ -43,7 +43,7 @@ const Event = (props) => {
     history.push(`/events/${id}/edit`);
   };
 
-  // handle delete event request 
+  // handle delete event request
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/events/${id}/`);
@@ -103,11 +103,16 @@ const Event = (props) => {
             <Media className="align-items-center justify-content-between">
               <div className="d-flex align-items-center">
                 <span>
-                  <h1>{title}</h1>
+                  <h1 className={styles.Header}>{title}</h1>
                 </span>
               </div>
               <div className="d-flex align-items-center">
-                {is_owner && <DropdownMenu handleEdit={handleEdit} handleDelete={handleDelete} />}
+                {is_owner && (
+                  <DropdownMenu
+                    handleEdit={handleEdit}
+                    handleDelete={handleDelete}
+                  />
+                )}
               </div>
             </Media>
           </Card.Body>
@@ -116,33 +121,35 @@ const Event = (props) => {
           </Link>
           <Card.Body className={styles.Body}>
             <Media className="align-items-center justify-content-between">
-              <div className="d-flex align-items-center">
-                <span>
-                  {date}: {time}
-                </span>
+              <div className="align-items-center text-left">
+                <div>
+                  <strong>{date}</strong>
+                </div>
               </div>
               <div className="d-flex align-items-center">
                 <span>
-                  Organiser: <Link to={`/profiles/${profile_id}`}>{owner}</Link>
+                  Host: <strong><Link to={`/profiles/${profile_id}`}>{owner}</Link></strong>
                 </span>
               </div>
             </Media>
-          </Card.Body>
-          <Card.Body className={styles.Body}>
             <Media className="align-items-center justify-content-between">
+              <div className="align-items-center text-left">{time}</div>
               <div className="d-flex align-items-center">
-                <span>Location: {location}</span>
-              </div>
-              <div className="d-flex align-items-center">
-                <span>Attendees: {attending_count}</span>
+                <span>Attending: {attending_count}</span>
               </div>
             </Media>
           </Card.Body>
           <Card.Body className={styles.Body}>
-            <Media>
-              <div className="text-left">{content}
-              </div>
-            </Media>
+            <Card.Text className="align-items-center d-block text-left">
+              <h5 className={styles.Heading}>Location:</h5>
+              <div>{location}</div>
+            </Card.Text>
+          </Card.Body>
+          <Card.Body className={styles.Body}>
+            <Card.Text className="align-items-center d-block text-left">
+              <h5 className={styles.Heading}>Description:</h5>
+              <div className="text-left">{content}</div>
+            </Card.Text>
           </Card.Body>
           <Card.Body className={styles.Body}>
             <Media className="align-items-center justify-content-between">
@@ -154,13 +161,13 @@ const Event = (props) => {
                   <OverlayTrigger
                     placement="top"
                     overlay={
-                      <Tooltip>You cannot de-register your own event.</Tooltip>
+                      <Tooltip>You cannot un-register your own event.</Tooltip>
                     }
                   >
                     <Button
                       className={`${btnStyles.Button} ${btnStyles.Light}`}
                     >
-                      Attending
+                      Going
                     </Button>
                   </OverlayTrigger>
                 ) : attending_id ? (
@@ -172,7 +179,7 @@ const Event = (props) => {
                       className={`${btnStyles.Button} ${btnStyles.Light}`}
                       onClick={handleUnattend}
                     >
-                      Attending
+                      Going
                     </Button>
                   </OverlayTrigger>
                 ) : currentUser && !attending_id ? (
@@ -184,7 +191,7 @@ const Event = (props) => {
                       className={`${btnStyles.Button} ${btnStyles.Dark}`}
                       onClick={handleAttend}
                     >
-                      Not attending
+                      Register
                     </Button>
                   </OverlayTrigger>
                 ) : (
@@ -196,7 +203,7 @@ const Event = (props) => {
                       className={`${btnStyles.Button} ${btnStyles.Dark}`}
                       onClick={() => {}}
                     >
-                      Not attending
+                      Register
                     </Button>
                   </OverlayTrigger>
                 )}
@@ -212,26 +219,29 @@ const Event = (props) => {
           <Card.Body className={styles.Body}>
             <Media className="align-items-center justify-content-between">
               <div className="d-flex align-items-center">
-                <span>
-                  {date}: {time}
-                </span>
+                  <strong>{date}</strong>
               </div>
               <div className="d-flex align-items-center">
-                <span>Attendees: {attending_count}</span>
+                <span>Attending: {attending_count}</span>
               </div>
+            </Media>
+            <Media className="align-items-center justify-content-between">
+              <div className="align-items-center text-left">{time}</div>
             </Media>
           </Card.Body>
           <Card.Body className={styles.Body}>
-            <Media className="align-items-center justify-content-between">
+            <Card.Text>
               <div>
                 {title && (
-                  <Card.Title className={`${styles.Title} text-left`}>{title}</Card.Title>
+                  <Card.Title className={`${styles.Title} text-left`}>
+                    {title}
+                  </Card.Title>
                 )}
                 {location && (
                   <Card.Text className="text-left">{location}</Card.Text>
                 )}
               </div>
-            </Media>
+            </Card.Text>
           </Card.Body>
           <Card.Body className={styles.Body}>
             <Media className="align-items-center justify-content-between">
@@ -243,37 +253,37 @@ const Event = (props) => {
                   <OverlayTrigger
                     placement="top"
                     overlay={
-                      <Tooltip>You cannot de-register your own event.</Tooltip>
+                      <Tooltip>You cannot un-register from your own event.</Tooltip>
                     }
                   >
                     <Button
                       className={`${btnStyles.Button} ${btnStyles.Light}`}
                     >
-                      Attending
+                      Going
                     </Button>
                   </OverlayTrigger>
                 ) : attending_id ? (
                   <OverlayTrigger
                     placement="top"
-                    overlay={<Tooltip>Click to unattend</Tooltip>}
+                    overlay={<Tooltip>Click to unregister</Tooltip>}
                   >
                     <Button
                       className={`${btnStyles.Button} ${btnStyles.Light}`}
                       onClick={handleUnattend}
                     >
-                      Attending
+                      Going
                     </Button>
                   </OverlayTrigger>
                 ) : currentUser && !attending_id ? (
                   <OverlayTrigger
                     placeement="top"
-                    overlay={<Tooltip>Click to attend</Tooltip>}
+                    overlay={<Tooltip>Click to register</Tooltip>}
                   >
                     <Button
                       className={`${btnStyles.Button} ${btnStyles.Dark}`}
                       onClick={handleAttend}
                     >
-                      Not attending
+                      Register
                     </Button>
                   </OverlayTrigger>
                 ) : (
@@ -285,7 +295,7 @@ const Event = (props) => {
                       className={`${btnStyles.Button} ${btnStyles.Dark}`}
                       onClick={() => {}}
                     >
-                      Not attending
+                      Register
                     </Button>
                   </OverlayTrigger>
                 )}
