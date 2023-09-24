@@ -162,6 +162,12 @@ Detail on the models used in this product can be found in the back-end repositor
 - Event details are displayed in a react bootstrap card: this is the Event component. 
 - The level of detail differs depending on whether the card is being displayed on the EventPage or EventsPage. 
 
+### Tag 
+- 
+
+### Attending Button
+- Each event contains an button for users to register whether they are attending an event or not. 
+
 ### Events Panel
 - The EventsPanel component is only visible to logged in users.
 - It displays 3 upcoming events that the user is attending.
@@ -185,6 +191,9 @@ Detail on the models used in this product can be found in the back-end repositor
 ### Comments
 - The comment form allows users to add a comment underneath an event. 
 - The edit comment form is a pre-populated form that allows comment owners to edit their comments. 
+
+### Like Button
+- Comments have a like button so users can like and unlike comments. 
 
 ### Profile Page
 - Each user has a unique profile page. 
@@ -344,6 +353,9 @@ TEST       | DESIRED RESULT          | PASS/FAIL |
 #### Event Card:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+#### Attending Button:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
 #### Events Panel:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
@@ -360,6 +372,9 @@ TEST       | DESIRED RESULT          | PASS/FAIL |
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
 #### Comments:
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+#### Like Button:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
 #### Profile Page:
