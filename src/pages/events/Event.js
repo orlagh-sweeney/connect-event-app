@@ -25,7 +25,6 @@ const Event = (props) => {
     id,
     owner,
     profile_id,
-    comments_count,
     attending_count,
     attending_id,
     title,
