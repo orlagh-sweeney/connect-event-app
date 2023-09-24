@@ -128,15 +128,10 @@ function EventsPage({ message }) {
           </Container>
         )}
       </Col>
-      {currentUser ? (
+      {currentUser && 
         <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
           <EventsPanel />
-        </Col>
-      ) : (
-        <Col className="d-none">
-          <>Login to see upcoming events</>
-        </Col>
-      )}
+        </Col>}
     </Row>
   );
 }
