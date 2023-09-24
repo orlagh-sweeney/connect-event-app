@@ -162,9 +162,6 @@ Detail on the models used in this product can be found in the back-end repositor
 - Event details are displayed in a react bootstrap card: this is the Event component. 
 - The level of detail differs depending on whether the card is being displayed on the EventPage or EventsPage. 
 
-### Tag 
-- 
-
 ### Attending Button
 - Each event contains an button for users to register whether they are attending an event or not. 
 

@@ -24,7 +24,12 @@ import Upload from "../../assets/upload.png";
 import { categories } from "../../utils/categories";
 import Asset from "../../components/Asset";
 
+// hook imports 
+import { useRedirect } from "../../hooks/useRedirect";
+
 function EventCreateForm() {
+  // redirect logged out users back to the homepage
+  useRedirect('loggedOut');
   // store form values and destructure useState hook
   const [eventData, setEventData] = useState({
     title: "",
