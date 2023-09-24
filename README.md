@@ -356,9 +356,17 @@ Create Event nav link | Brings logged in users to the /events/create | PASS
 #### Search Bar:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Search input | Users can type in the search bar | PASS
+Results | As the user types, relevant search results are displayed | PASS
+No results | If there are no matching results, a message is displayed to the user | PASS
+
 #### Events Filter:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Dropdown menu visibility | When clicked, the list of filters are shown to the user | PASS
+Results | When a user selects a filter, relevant results are displayed based on the filter | PASS
+No results | If there are no matching results for a given filter, a message is displayed to the user | PASS
+
 #### Event Card:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
