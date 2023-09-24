@@ -147,14 +147,14 @@ const Event = (props) => {
           </Card.Body>
           <Card.Body className={styles.Body}>
             <Card.Text className="align-items-center d-block text-left">
-              <span className={styles.Heading}>Location:</span>
-              <div>{location}</div>
+              <span className={styles.Heading}>Location:</span><br />
+              <span>{location}</span>
             </Card.Text>
           </Card.Body>
           <Card.Body className={styles.Body}>
             <Card.Text className="align-items-center d-block text-left">
-              <span className={styles.Heading}>Description:</span>
-              <div className="text-left">{content}</div>
+              <span className={styles.Heading}>Description:</span><br />
+              <span className="text-left">{content}</span>
             </Card.Text>
           </Card.Body>
           <Card.Body className={styles.Body}>
@@ -236,17 +236,17 @@ const Event = (props) => {
             </Media>
           </Card.Body>
           <Card.Body className={styles.Body}>
-            <Card.Text>
-              <div>
+            <Card.Text className="text-left mb-0">
                 {title && (
-                  <Card.Title className={`${styles.Title} text-left`}>
+                  <span className={styles.Title}>
                     {title}
-                  </Card.Title>
+                  </span>
                 )}
+            </Card.Text>
+            <Card.Text className="text-left">
                 {location && (
-                  <Card.Text className="text-left">{location}</Card.Text>
+                  <span>{location}</span>
                 )}
-              </div>
             </Card.Text>
           </Card.Body>
           <Card.Body className={styles.Body}>
