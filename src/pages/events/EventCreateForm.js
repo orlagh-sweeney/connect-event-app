@@ -221,7 +221,7 @@ function EventCreateForm() {
                   className="d-flex justify-content-center"
                   htmlFor="image-upload"
                 >
-                  <Asset src={Upload} message="Click to upload an image" />
+                  <Asset width="200" src={Upload} message="Click to upload an image" />
                 </Form.Label>
               )}
 
