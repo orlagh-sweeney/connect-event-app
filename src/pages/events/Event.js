@@ -148,13 +148,13 @@ const Event = (props) => {
           </Card.Body>
           <Card.Body className={styles.Body}>
             <Card.Text className="align-items-center d-block text-left">
-              <h5 className={styles.Heading}>Location:</h5>
+              <span className={styles.Heading}>Location:</span>
               <div>{location}</div>
             </Card.Text>
           </Card.Body>
           <Card.Body className={styles.Body}>
             <Card.Text className="align-items-center d-block text-left">
-              <h5 className={styles.Heading}>Description:</h5>
+              <span className={styles.Heading}>Description:</span>
               <div className="text-left">{content}</div>
             </Card.Text>
           </Card.Body>

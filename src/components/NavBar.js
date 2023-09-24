@@ -86,7 +86,7 @@ const NavBar = () => {
     >
       <Container>
         <NavLink to="/">
-          <Navbar.Brand className={styles.Brand} href="#home">
+          <Navbar.Brand className={styles.Brand}>
             ConnectBcn
           </Navbar.Brand>
         </NavLink>
@@ -104,7 +104,7 @@ const NavBar = () => {
               className={styles.NavLink}
               activeClassName={styles.Active}
             >
-              <i className="fa-solid fa-house"></i>
+              <i className="fa-solid fa-house"></i>Home
               <span>Home</span>
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
