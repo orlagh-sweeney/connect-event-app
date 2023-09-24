@@ -31,18 +31,20 @@ const SimilarEvents = (props) => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/events/?${filter}`);
-        setEventData((prevState) => ({
-          ...prevState,
-          similarEvents: data,
-        }));
+        if (type) {
+            const { data } = await axiosReq.get(`${filter}`);
+            setEventData((prevState) => ({
+              ...prevState,
+              similarEvents: data,
+            }));
+        }
       } catch (err) {
         console.log(err);
       }
     };
 
     handleMount();
-  }, [filter]);
+  }, [filter, type]);
 
   return (
     <>
