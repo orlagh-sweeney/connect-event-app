@@ -341,6 +341,18 @@ Detail on the models used in this product can be found in the back-end repositor
 #### NavBar: 
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Logo | When the logo is clicked, the user is brought to the home page | PASS
+Authenticated user | If a user is logged in, the navigation menu displays Home, Create Event, Profile and Sign Out nav links | PASS
+Unauthenticated user | If a user is not logged in, the navigation menu displays Home, Sign In and Sign Up nav links | PASS
+Mobile menu | On mobile devices, a burger menu is used to display navlinks | PASS
+Mobile menu close | When a user clicks a navlink on the mobile menu the menu closes | PASS
+Home nav link | Brings the user to the home page | PASS
+Sign Up nav link | Brings the user to the signup page | PASS
+Sign In nav link | Brings the user to the login page | PASS
+Sign Out nav link | Signs the user and returns the user to the home page | PASS
+Profiel nav link | Brings the user to their own proile page | PASS 
+Create Event nav link | Brings logged in users to the /events/create | PASS
+
 #### Search Bar:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
@@ -389,9 +401,20 @@ TEST       | DESIRED RESULT          | PASS/FAIL |
 #### Sign Up:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Redirect | Only logged out users can access the sign up page. Logged in users are redirected to the homepage | PASS
+Form fields | The correct form fields are displayed | PASS
+Unique username | If the user chooses a username that already exists in the database they are shown a warning | PASS
+Short password | If their chosen password is too short/weak they are shown a warning | PASS
+Confirm password | The user must confirm their password in order to sign up. The passwords must match. | PASS
+Sign up button | A new user is created in the database and the user is redirected to the login page | PASS
+
 #### Sign in:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Redirect | Only logged out users can access the sign up page. Logged in users are redirected to the homepage | PASS
+Form fields | The correct form fields are displayed | PASS
+Credentials | If the input credentials do not match,  the user is shown a warning that they were incorrect. | PASS
+Sign in button | The user is signd in and redirected to the homepage | PASS
 
 ### Bugs
 
