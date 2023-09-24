@@ -104,7 +104,7 @@ const NavBar = () => {
               className={styles.NavLink}
               activeClassName={styles.Active}
             >
-              <i className="fa-solid fa-house"></i>Home
+              <i className="fa-solid fa-house"></i>
               <span>Home</span>
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
