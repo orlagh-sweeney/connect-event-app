@@ -37,7 +37,7 @@ function EventCreateForm() {
     time: "",
     location: "",
     content: "",
-    type: "type",
+    type: "",
     image: "",
   });
 
