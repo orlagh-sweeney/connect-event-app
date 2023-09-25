@@ -42,10 +42,10 @@ function CommentEditForm(props) {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="px-4">
+    <Form onSubmit={handleSubmit} className="px-4 mt-2">
       <Form.Group>
         <Form.Control
-          className={styles.Form}
+          className={styles.FormEdit}
           as="textarea"
           value={formContent}
           onChange={handleChange}

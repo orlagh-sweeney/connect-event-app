@@ -136,7 +136,7 @@ const Comment = (props) => {
           />
         )}
       </Media>
-      <Media className="ml-6">
+      <Media.Body>
         {showEditForm ? (
           <CommentEditForm
             id={id}
@@ -149,7 +149,7 @@ const Comment = (props) => {
         ) : (
           <p className={styles.Content}>{content}</p>
         )}
-      </Media>
+      </Media.Body>
     </div>
   );
 };
