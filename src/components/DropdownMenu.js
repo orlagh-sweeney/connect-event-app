@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/DropdownMenu.module.css";
 import { useHistory } from "react-router";
+import { Button, Modal } from "react-bootstrap";
 
 // dropdown menu with edit and delete buttons
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
@@ -15,8 +16,12 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const DropdownMenu = ({ handleEdit, handleDelete }) => {
+export const DropdownMenu = ({ handleEdit, handleDelete, item }) => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
+    <>
     <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={ThreeDots} />
 
@@ -33,15 +38,61 @@ export const DropdownMenu = ({ handleEdit, handleDelete }) => {
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownItem}
-          onClick={handleDelete}
+          onClick={handleShow}
           aria-label="delete"
         >
           <i className="fas fa-trash-alt" />
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
+    <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton> 
+        <Modal.Title>This action is permanent.</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete this {item}?</Modal.Body>
+        <Modal.Footer>
+          <Button className={styles.Cancel} onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button className={styles.Delete} onClick={handleDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
+
+// export const DropdownMenu = ({ handleEdit, handleDelete }) => {
+//     const [show, setShow] = useState(false);
+//     const handleClose = () => setShow(false);
+//     const handleShow = () => setShow(true);
+//     return (
+//       <Dropdown className="ml-auto" drop="left">
+//         <Dropdown.Toggle as={ThreeDots} />
+  
+//         <Dropdown.Menu
+//           className="text-center"
+//           popperConfig={{ strategy: "fixed" }}
+//         >
+//           <Dropdown.Item
+//             className={styles.DropdownItem}
+//             onClick={handleEdit}
+//             aria-label="edit"
+//           >
+//             <i className="fas fa-edit" />
+//           </Dropdown.Item>
+//           <Dropdown.Item
+//             className={styles.DropdownItem}
+//             onClick={handleDelete}
+//             aria-label="delete"
+//           >
+//             <i className="fas fa-trash-alt" />
+//           </Dropdown.Item>
+//         </Dropdown.Menu>
+//       </Dropdown>
+//     );
+//   };
 
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();

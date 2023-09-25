@@ -132,6 +132,7 @@ const Comment = (props) => {
           <DropdownMenu
             handleEdit={() => setShowEditForm(true)}
             handleDelete={handleDelete}
+            item="comment"
           />
         )}
       </Media>

@@ -17,3 +17,26 @@
 .DropdownItem2:hover {
   background-color: #ffffff !important;
 }
+
+.Delete {
+  color: #0d1216;
+  background-color: #ff9f1c;
+  border-color: #ff9f1c;
+}
+
+.Delete:hover {
+  background-color: #1a54e6;
+  color: #ffffff;
+}
+
+.Cancel {
+  color: #ffffff;
+  background-color: #3c5467;
+  border-color: #3c5467;
+}
+
+.Cancel:hover {
+  background-color: #0d1216;
+  border-color: #0d1216;
+  color: #ffffff;
+}

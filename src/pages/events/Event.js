@@ -117,6 +117,7 @@ const Event = (props) => {
                   <DropdownMenu
                     handleEdit={handleEdit}
                     handleDelete={handleDelete}
+                    item="event"
                   />
                 )}
               </div>
