@@ -15,6 +15,7 @@ import UserPasswordForm from './pages/profiles/UserPasswordForm';
 import UsernameForm from './pages/profiles/UsernameForm';
 import {NotificationContainer} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import AboutPage from './pages/About';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Switch>
           <Route exact path="/" render={() => <EventsPage message="Not results found. Adjust your search query." />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
+          <Route exact path="/about" render={() => <AboutPage />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/events/create" render={() => <EventCreateForm />} />
           <Route exact path="/events/:id" render={() => <EventPage />} />
