@@ -1,14 +1,22 @@
+// react imports 
 import { createContext, useContext, useEffect, useState, useMemo } from "react";
-import axios from "axios";
 import { useHistory } from "react-router";
+
+// api imports
+import axios from "axios";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
 
+// context exports
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
 
 export const useCurrentUser = () => useContext(CurrentUserContext);
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
+
+/*
+Code from Code Institute Moments walkthrough project
+*/
 
 export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);

@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
+/*
+Code from Code Institute Moments walkthrough project
+Custom hook to toggle navbar on mobile
+*/
+
 const useClickOutsideToggle = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);
