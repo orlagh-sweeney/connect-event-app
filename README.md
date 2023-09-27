@@ -115,6 +115,16 @@ The following user stories will be implemented in the next iteration:
 4. As a logged in user I can see suggested events based on my interests so that I can join them
 
 ### Colour Scheme
+The website uses a clean, white look so information is easily disgestable. Blue and Orange were chosen as the main colours for buttons and headings etc. Orange gives the idea of creativity, happiness and positive energy, while blue gives the idea of loyalty, confidence and reliabilty. These are the charateristics behind the ConnectBcn application. 
+
+The following colours are used in the project: 
+- Organge Peel (#FF9F1C)
+- Byzantine Blue (#1A54E6)
+- Cobalt Blue (#184AB1)
+- Rich Black (#0D1216)
+- White (#FFFFFF)
+
+<image src="src/assets/readme/coolors-palette.png" width="600px"></image>
 
 ## Planning
 ### Methodology
@@ -143,7 +153,19 @@ Detail on the models used in this product can be found in the back-end repositor
 - [Balsamiq](https://balsamiq) was used to develop wireframes for mobile and desktop in the planning stage of the website. <br>
 
 ### Components
-- The project was built using React and incorporates a series of reusbable react components. 
+- The project was built using React and incorporates a series of reusbable react components including the following:
+    - Avatar.js: 
+        Displays user avatars in the Navbar.js and ProfilePage.js
+    - Dropdown.js:
+        Used to display a dropdown menu on Event.js and ProfilePage.js
+    - Event.js:
+        Display event informations on EventPage.js and EventsPage.js
+    - EventsPanel.js:
+        Displays upcoming events on EventsPage.js and ProfilePage.js
+    - Asset.js:
+        Used on in multiple components to display a loading spinner, images and messages.
+    - Tag.js:
+        Used on Event.js to show event type. Will be used in a future feature to show user interests on their profile page. 
 
 ## Features
 ### NavBar
@@ -227,9 +249,10 @@ Detail on the models used in this product can be found in the back-end repositor
 - [React](https://react.dev/): front-end end Javascript library to build a component based UI.
 - [React Bootstrap 4](https://react-bootstrap-v4.netlify.app/): this was the CSS framework used to make the site responsive. 
 - [react-router-dom](https://reactrouter.com/en/6.16.0/start/overview): this was used to handle url routing within the application.
-- [axios](https://axios-http.com/): used to make request to the API 
+- [axios](https://axios-http.com/): this was used to make requests to the API.
 - [react-infinite-scroll](https://www.npmjs.com/package/react-infinite-scroll-component): this was used to add infinite scroll functionality.
-- [Days.js](https://day.js.org/en/). This was used to re-format the date retrieved from the API to be used in the EventEditForm.
+- [Days.js](https://day.js.org/en/): This was used to re-format the date retrieved from the API to be used in the EventEditForm.
+- [react-notifications](https://www.npmjs.com/package/react-notifications); this was used to provide user feedback on CRUD functionality. 
 - [Cloudinary](https://cloudinary.com/): this was used to store static and media files.
 - [Gitpod](https://www.gitpod.io/): this was used to write, commit and to push the code to Github. 
 - [Github](https://github.com/): this was used for version control. 
@@ -425,6 +448,9 @@ Credentials | If the input credentials do not match,  the user is shown a warnin
 Sign in button | The user is signd in and redirected to the homepage | PASS
 
 ### Bugs
+1. Filter and Search Query Bug:
+2. Date Format Bug:
+3. Event Create Form Bug: 
 
 ## Deployment
 The program was developed in Gitpod. It was then commited and pushed to GitHub.
@@ -444,7 +470,17 @@ Deployment to Heroku was completed using the following steps:
 
 ## Credit
 ### Media
+Images were sourced from the following resources:
+- [Pixabay](https://pixabay.com/):
+    - Default user image is [blank-profile-picture-mystery-man-973460/](https://pixabay.com/vectors/blank-profile-picture-mystery-man-973460/) by [Stephaine Edwards](https://pixabay.com/users/wanderercreative-855399/)
+- [Pexals](https://www.pexels.com/):
+    - The hero image is [arc-de-triomf-gateway-in-barcelona-spain-7931932/](https://www.pexels.com/photo/arc-de-triomf-gateway-in-barcelona-spain-7931932/) by [Gintarė Kairaitytė](https://www.pexels.com/@gintare-kairaityte-11923111/)
+- Canva:
+    - Canva was used to create the a custom upload image icon.
+
+
 ### Code
+The Code Institute 'Moments' walkthrough projects was used as inspiration for this project. Elements of the 'Moments' project were used and adapted to suit this project.
 
 ## Acknowledgements
 - Thank you to my mentor Marcel for his feedback and suggestions at each stage of the project.
