@@ -19,6 +19,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     }}
   />
 ));
+ThreeDots.displayName = "ThreeDots";
 
 /*
 Dropdown menu with edit and delete buttons

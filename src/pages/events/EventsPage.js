@@ -108,6 +108,7 @@ function EventsPage({ message }) {
           <>
             {events.results.length ? (
               <InfiniteScroll
+              // eslint-disable-next-line
                 children={events.results.map((event) => (
                   <Event key={event.id} {...event} setEvents={setEvents} />
                 ))}

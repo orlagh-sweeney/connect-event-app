@@ -121,7 +121,7 @@ const SignInForm = () => {
 
         <Container className="mt-3">
           <Link className={styles.Link} to="/signup">
-            Don't have an account? <span>Sign up here!</span>
+            Don&apos;t have an account? <span>Sign up here!</span>
           </Link>
         </Container>
       </Col>

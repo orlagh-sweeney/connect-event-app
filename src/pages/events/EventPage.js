@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
-// api imports 
+// api imports
 import { axiosReq } from "../../api/axiosDefaults";
 
 // style imports
@@ -73,6 +73,7 @@ function EventPage() {
           ) : null}
           {comments.results.length ? (
             <InfiniteScroll
+              // eslint-disable-next-line
               children={comments.results.map((comment) => (
                 <Comment
                   key={comment.id}
@@ -87,12 +88,14 @@ function EventPage() {
               next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
-            <div className="text-center my-2">Be the first to leave a comment!</div>
+            <div className="text-center my-2">
+              Be the first to leave a comment!
+            </div>
           ) : (
             <div className="text-center my-2">No comments yet</div>
           )}
         </Container>
-        <hr/>
+        <hr />
         <Container className={appStyles.Content}>
           <SimilarEvents {...event.results[0]} setEvents={setEvent} />
         </Container>

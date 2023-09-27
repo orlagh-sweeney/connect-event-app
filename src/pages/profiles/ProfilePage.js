@@ -115,6 +115,7 @@ const ProfilePage = () => {
       </h2>
       {profileEvents.results.length ? (
         <InfiniteScroll
+        // eslint-disable-next-line
           children={
             // if events exist, map over events and render each one
             profileEvents.results.map((event) => (

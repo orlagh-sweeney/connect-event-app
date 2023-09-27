@@ -110,7 +110,7 @@ function EventCreateForm() {
       <Row>
         <Col md={{ span: 8, offset: 1 }}>
           <Container className="p-4">
-            <h2 className={styles.Header}>Hi, let's build your event</h2>
+            <h2 className={styles.Header}>Hi, let&apos;s build your event</h2>
 
             <Form.Group>
               <Form.Label>Event Name</Form.Label>
