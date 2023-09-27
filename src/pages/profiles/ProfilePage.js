@@ -1,35 +1,44 @@
+// react imports
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
+// api imports
+import { axiosReq } from "../../api/axiosDefaults";
+
+// boostrap imports
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import { Button, Image } from "react-bootstrap";
 
-import Asset from "../../components/Asset";
-import { ProfileEditDropdown } from "../../components/DropdownMenu";
-
-
+// style imports
 import appStyles from "../../App.module.css";
 import styles from "../../styles/ProfilePage.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+// component imports
+import Asset from "../../components/Asset";
+import { ProfileEditDropdown } from "../../components/DropdownMenu";
 import EventsPanel from "../events/EventsPanel";
-import { useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
 import Event from "../events/Event";
-import { fetchMoreData } from "../../utils/utils";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Button, Image } from "react-bootstrap";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { fetchMoreData } from "../../utils/utils";
+
+// context imports
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const ProfilePage = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
+  // store profile id from url
   const { id } = useParams();
 
   const [profileData, setProfileData] = useState({ results: [] });
   const [profileEvents, setProfileEvents] = useState({ results: [] });
 
+  // fetch profile data based on id
+  // fetch events the profile owner has created
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -49,8 +58,10 @@ const ProfilePage = () => {
     fetchData();
   }, [id]);
 
+  // check if the current user is the profile owner
   const is_owner = currentUser?.username === profileData.owner;
 
+  // display profile details
   const mainProfile = (
     <>
       <Row noGutters className="px-3 text-lg-left">
@@ -71,13 +82,16 @@ const ProfilePage = () => {
             {profileData.content}dfdvd
           </p>
         </Col>
-        {is_owner && <Col lg={3} className="text-lg-right">
-        <ProfileEditDropdown id={profileData?.id} />
-        </Col>}
+        {is_owner && (
+          <Col lg={3} className="text-lg-right">
+            <ProfileEditDropdown id={profileData?.id} />
+          </Col>
+        )}
       </Row>
     </>
   );
 
+  // display profile stats
   const mainProfileStats = (
     <>
       <Row noGutters className="px-3 pt-5 text-lg-left">
@@ -96,11 +110,13 @@ const ProfilePage = () => {
   // display events the profile owners has organised
   const mainProfileEvents = (
     <>
-      <h2 className={`${styles.Events} text-left m-2`}>Events by {profileData.owner}:</h2>
+      <h2 className={`${styles.Events} text-left m-2`}>
+        Events by {profileData.owner}:
+      </h2>
       {profileEvents.results.length ? (
         <InfiniteScroll
           children={
-            // if it does, map over posts and render each one
+            // if events exist, map over events and render each one
             profileEvents.results.map((event) => (
               <Event key={event.id} {...event} setEvents={setProfileEvents} />
             ))
@@ -118,40 +134,42 @@ const ProfilePage = () => {
 
   return (
     <>
-    {currentUser ? (
-            <Row className="pt-2">
-            <Col className="py-2 p-0 p-lg-2" lg={8}>
-              <Container className={appStyles.Content}>
-                {hasLoaded ? (
-                  <>
-                    {mainProfile}
-                    {mainProfileStats}
-                    {mainProfileEvents}
-                  </>
-                ) : (
-                  <Asset spinner />
-                )}
-              </Container>
-            </Col>
-            {is_owner && (
-              // only display if the user is the profile owner
-              <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-                <EventsPanel />
-              </Col>
-            )}
-          </Row>
-    ) : (
+      {/* check if the user is authentictated */}
+      {currentUser ? (
         <Row className="pt-2">
-        <Col className="py-2 px-4 p-0 p-lg-2">
-          <p>You must be signed in to view this page.</p>
-          <Link to={`/signin/`}>
-            <Button className={`${btnStyles.Button} ${btnStyles.Dark}`}>
-                Sign in
-            </Button>
-          </Link>
+          <Col className="py-2 p-0 p-lg-2" lg={8}>
+            <Container className={appStyles.Content}>
+              {hasLoaded ? (
+                <>
+                  {mainProfile}
+                  {mainProfileStats}
+                  {mainProfileEvents}
+                </>
+              ) : (
+                <Asset spinner />
+              )}
+            </Container>
           </Col>
-      </Row>
-    )}
+          {is_owner && (
+            // only display if the user is the profile owner
+            <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+              <EventsPanel />
+            </Col>
+          )}
+        </Row>
+      ) : (
+        // if the user is not authenticated prompt the user to sign in
+        <Row className="pt-2">
+          <Col className="py-2 px-4 p-0 p-lg-2">
+            <p>You must be signed in to view this page.</p>
+            <Link to={`/signin/`}>
+              <Button className={`${btnStyles.Button} ${btnStyles.Dark}`}>
+                Sign in
+              </Button>
+            </Link>
+          </Col>
+        </Row>
+      )}
     </>
   );
 };

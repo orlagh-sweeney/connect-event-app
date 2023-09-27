@@ -40,6 +40,7 @@ const UsernameForm = () => {
     }
   }, [currentUser, history, id]);
 
+  // submit new username to api 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

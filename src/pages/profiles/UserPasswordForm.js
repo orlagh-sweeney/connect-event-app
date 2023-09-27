@@ -19,8 +19,9 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 // style imports
 import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/UserPasswordForm.module.css";
-import { NotificationManager } from "react-notifications";
 
+// notificaition imports
+import { NotificationManager } from "react-notifications";
 
 const UserPasswordForm = () => {
   const history = useHistory();
@@ -35,6 +36,7 @@ const UserPasswordForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  // handle changes in the input fields
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -49,6 +51,7 @@ const UserPasswordForm = () => {
     }
   }, [currentUser, history, id]);
 
+  // submit new password to api
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -74,7 +77,7 @@ const UserPasswordForm = () => {
     <Row className={styles.Row}>
       <Col className="mx-auto py-2 p-md-2" md={{ span: 6, offset: 2 }}>
         <Container className="p-4">
-        <h1 className={styles.Header}>Change password</h1>
+          <h1 className={styles.Header}>Change password</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>New password</Form.Label>

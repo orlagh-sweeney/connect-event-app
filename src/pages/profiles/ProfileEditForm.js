@@ -14,7 +14,7 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 
-// style improts
+// style imports
 import styles from "../../styles/ProfileEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -42,7 +42,7 @@ const ProfileEditForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  // get profile data from the API 
+  // get profile data from the API
   useEffect(() => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
@@ -69,7 +69,7 @@ const ProfileEditForm = () => {
     });
   };
 
-  // submit updated data to the API 
+  // submit updated data to the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -128,10 +128,10 @@ const ProfileEditForm = () => {
             ))}
 
             <Form.Group className="text-center">
-            <p className="d-flex">Profile Photo</p>
+              <p className="d-flex">Profile Photo</p>
               {image && (
                 <figure>
-                  <Image className={`${appStyles.Image}`} src={image}/>
+                  <Image className={`${appStyles.Image}`} src={image} />
                 </figure>
               )}
               {errors?.image?.map((message, idx) => (
