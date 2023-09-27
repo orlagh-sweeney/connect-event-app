@@ -7,6 +7,7 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import { axiosRes } from "../../api/axiosDefaults";
+import { NotificationManager } from "react-notifications";
 
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
@@ -35,9 +36,19 @@ function CommentEditForm(props) {
             : comment;
         }),
       }));
+      NotificationManager.success(
+        "Success!",
+        "Your comment has been updated",
+        3000
+      );
       setShowEditForm(false);
     } catch (err) {
       console.log(err);
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Your comment has not been updated.",
+        3000
+      );
     }
   };
 

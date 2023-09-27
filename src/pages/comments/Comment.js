@@ -8,6 +8,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import CommentEditForm from "./CommentEditForm";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { NotificationManager } from "react-notifications";
 
 const Comment = (props) => {
   const {
@@ -45,7 +46,18 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-    } catch (err) {}
+      NotificationManager.success(
+        "Success!",
+        "Your comment has been deleted",
+        3000
+      );
+    } catch (err) {
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Your comment has not been deleted",
+        3000
+      );
+    }
   };
 
   // allows users to like a comment

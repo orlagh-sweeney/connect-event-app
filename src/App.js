@@ -13,12 +13,16 @@ import ProfilePage from './pages/profiles/ProfilePage';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import UserPasswordForm from './pages/profiles/UserPasswordForm';
 import UsernameForm from './pages/profiles/UsernameForm';
+import {NotificationContainer} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 
 function App() {
 
   return (
     <div className={styles.App}>
       <NavBar />
+      <NotificationContainer/>
       <Container className={styles.Main}>
       <Switch>
           <Route exact path="/" render={() => <EventsPage message="Not results found. Adjust your search query." />} />

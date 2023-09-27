@@ -10,6 +10,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { InputGroup } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { NotificationManager } from "react-notifications";
 
 function CommentCreateForm(props) {
   const { event, setEvent, setComments, profileImage, profile_id } = props;
@@ -38,9 +39,19 @@ function CommentCreateForm(props) {
           },
         ],
       }));
+      NotificationManager.success(
+        "Success!",
+        "Your comment has been posted",
+        3000
+      );
       setContent("");
     } catch (err) {
       console.log(err);
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Your comment has not been posted",
+        3000
+      );
     }
   };
 
