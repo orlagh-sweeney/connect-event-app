@@ -56,7 +56,7 @@ const Event = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/events/${id}/`);
-      history.goBack();
+      history.push("/");
       NotificationManager.success(
         "Success!",
         "Your event has been deleted",
