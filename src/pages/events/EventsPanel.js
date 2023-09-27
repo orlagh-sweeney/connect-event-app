@@ -8,14 +8,14 @@ import { axiosReq } from "../../api/axiosDefaults";
 // react bootstrap imports
 import { Container } from "react-bootstrap";
 
-// style imports 
+// style imports
 import appStyles from "../../App.module.css";
 import styles from "../../styles/EventsPanel.module.css";
 
-// componet imports 
+// componet imports
 import Asset from "../../components/Asset";
 
-// context imports 
+// context imports
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const EventsPanel = () => {
@@ -29,23 +29,33 @@ const EventsPanel = () => {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
 
-  // get events that the current user is attending 
+  // get events that the current user is attending
   useEffect(() => {
+    // track if component is mounted
+    let isMounted = true;
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(
           `/events/?attendees__owner__profile=${profile_id}&owner__profile=&type=`
         );
-        setEventData((prevState) => ({
-          ...prevState,
-          upcomingEvents: data,
-        }));
+        // check if component is mounted, update state if mounted
+        if (isMounted) {
+          setEventData((prevState) => ({
+            ...prevState,
+            upcomingEvents: data,
+          }));
+        }
       } catch (err) {
         console.log(err);
       }
     };
 
     handleMount();
+
+    // clean up function 
+    return () => {
+      isMounted = false;
+    };
   }, [profile_id]);
 
   return (
