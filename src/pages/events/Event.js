@@ -19,6 +19,9 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import Tag from "../../components/Tag";
 
+// notifications import
+import { NotificationManager } from "react-notifications";
+
 const Event = (props) => {
   // destructure props
   const {
@@ -54,8 +57,18 @@ const Event = (props) => {
     try {
       await axiosRes.delete(`/events/${id}/`);
       history.goBack();
+      NotificationManager.success(
+        "Success!",
+        "Your event has been deleted",
+        3000
+      );
     } catch (err) {
       console.log(err);
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Your event could not be deleted",
+        3000
+      );
     }
   };
 

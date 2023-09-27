@@ -21,6 +21,7 @@ import btnStyles from "../../styles/Button.module.css";
 
 // component imports
 import { categories } from "../../utils/categories";
+import { NotificationManager } from "react-notifications";
 
 function EventEditForm() {
   // store form values and destructure useState hook
@@ -109,11 +110,21 @@ function EventEditForm() {
     try {
       await axiosReq.put(`/events/${id}`, formData);
       history.push(`/events/${id}`);
+      NotificationManager.success(
+        "Success!",
+        "Your event has been updated",
+        3000
+      );
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Your event could not be updated",
+        3000
+      );
     }
   };
 

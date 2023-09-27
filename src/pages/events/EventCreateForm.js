@@ -26,6 +26,7 @@ import Asset from "../../components/Asset";
 
 // hook imports 
 import { useRedirect } from "../../hooks/useRedirect";
+import { NotificationManager } from "react-notifications";
 
 function EventCreateForm() {
   // redirect logged out users back to the homepage
@@ -86,11 +87,21 @@ function EventCreateForm() {
     try {
       const { data } = await axiosReq.post("/events/", formData);
       history.push(`/events/${data.id}`);
+      NotificationManager.success(
+        "Success!",
+        "Your event has been created",
+        3000
+      );
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Your event could not be created",
+        3000
+      );
     }
   };
 
