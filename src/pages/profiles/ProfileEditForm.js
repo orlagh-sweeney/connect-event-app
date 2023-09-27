@@ -24,6 +24,7 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
+import { NotificationManager } from "react-notifications";
 
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
@@ -86,9 +87,19 @@ const ProfileEditForm = () => {
         profile_image: data.image,
       }));
       history.goBack();
+      NotificationManager.success(
+        "Success!",
+        "Your profile has been updated",
+        3000
+      );
     } catch (err) {
       console.log(err);
       setErrors(err.response?.data);
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Your profile has not been updated",
+        3000
+      );
     }
   };
 

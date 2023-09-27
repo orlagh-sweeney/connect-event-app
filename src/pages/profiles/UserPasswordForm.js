@@ -19,6 +19,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 // style imports
 import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/UserPasswordForm.module.css";
+import { NotificationManager } from "react-notifications";
 
 
 const UserPasswordForm = () => {
@@ -53,9 +54,19 @@ const UserPasswordForm = () => {
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       history.goBack();
+      NotificationManager.success(
+        "Success!",
+        "Your password has been updated",
+        3000
+      );
     } catch (err) {
       console.log(err);
       setErrors(err.response?.data);
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Your password has not been updated",
+        3000
+      );
     }
   };
 

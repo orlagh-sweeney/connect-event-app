@@ -19,6 +19,7 @@ import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserCon
 // style imports
 import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/UsernameForm.module.css";
+import { NotificationManager } from "react-notifications";
 
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
@@ -50,9 +51,19 @@ const UsernameForm = () => {
         username,
       }));
       history.goBack();
+      NotificationManager.success(
+        "Success!",
+        "Your username has been updated",
+        3000
+      );
     } catch (err) {
       console.log(err);
       setErrors(err.response?.data);
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Your username has not been updated",
+        3000
+      );
     }
   };
 
