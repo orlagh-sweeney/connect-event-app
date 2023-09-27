@@ -199,6 +199,7 @@ function EventCreateForm() {
                 value={type}
                 onChange={handleChange}
               >
+                <option value="none" className="d-none">select a category</option>
                 {categories.map((category) => (
                   <option key={category.key} value={category.key}>
                     {category.value}
