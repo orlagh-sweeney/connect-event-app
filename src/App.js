@@ -26,7 +26,7 @@ function App() {
       <NotificationContainer/>
       <Container className={styles.Main}>
       <Switch>
-          <Route exact path="/" render={() => <EventsPage message="Not results found. Adjust your search query." />} />
+          <Route exact path="/" render={() => <EventsPage message="No results found. Adjust your search query." />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/about" render={() => <AboutPage />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
