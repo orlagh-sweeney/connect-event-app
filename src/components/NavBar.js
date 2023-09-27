@@ -1,25 +1,40 @@
+// react imports
 import React from "react";
+import { NavLink } from "react-router-dom";
+
+// api imports
+import axios from "axios";
+
+// react bootstrap imports
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+
+// style imports
 import styles from "../styles/NavBar.module.css";
 import btnStyles from "../styles/Button.module.css";
-import { NavLink } from "react-router-dom";
+
+// context imports
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
+
+// component imports
 import Avatar from "./Avatar";
-import axios from "axios";
-import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 
+// hook imports
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+
 const NavBar = () => {
+  // get current user
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+  // handle sign out
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -86,9 +101,7 @@ const NavBar = () => {
     >
       <Container>
         <NavLink to="/">
-          <Navbar.Brand className={styles.Brand}>
-            ConnectBcn
-          </Navbar.Brand>
+          <Navbar.Brand className={styles.Brand}>ConnectBcn</Navbar.Brand>
         </NavLink>
         <Navbar.Toggle
           ref={ref}

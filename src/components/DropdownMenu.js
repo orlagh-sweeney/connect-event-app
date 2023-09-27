@@ -1,10 +1,14 @@
+// react imports
 import React, { useState } from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import styles from "../styles/DropdownMenu.module.css";
 import { useHistory } from "react-router";
+
+// react bootstrap imports
+import Dropdown from "react-bootstrap/Dropdown";
 import { Button, Modal } from "react-bootstrap";
 
-// dropdown menu with edit and delete buttons
+// style imports
+import styles from "../styles/DropdownMenu.module.css";
+
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-ellipsis-v"
@@ -16,6 +20,11 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
+/*
+Dropdown menu with edit and delete buttons
+Displays a modal to the user when when deleting a comment or event
+for user confirmation
+*/
 export const DropdownMenu = ({ handleEdit, handleDelete, item }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -63,6 +72,7 @@ export const DropdownMenu = ({ handleEdit, handleDelete, item }) => {
   );
 };
 
+//Dropdown menu with edit profile buttons
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();
   return (
