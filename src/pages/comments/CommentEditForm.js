@@ -1,23 +1,32 @@
+// react imports
 import React, { useState } from "react";
 
+// api imports
+import { axiosRes } from "../../api/axiosDefaults";
+
+// bootstrap imports
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+// style imports
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import { axiosRes } from "../../api/axiosDefaults";
+// notifications imports
 import { NotificationManager } from "react-notifications";
 
 function CommentEditForm(props) {
+  // destructure props
   const { id, content, setShowEditForm, setComments } = props;
 
   const [formContent, setFormContent] = useState(content);
 
+  // handle change to comment
   const handleChange = (e) => {
     setFormContent(e.target.value);
   };
 
+  // submit updated comment to api
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

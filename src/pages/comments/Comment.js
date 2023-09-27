@@ -1,16 +1,30 @@
+// react imports 
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-import styles from "../../styles/Comment.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
+// api imports
 import { axiosRes } from "../../api/axiosDefaults";
+
+// style imports 
+import styles from "../../styles/Comment.module.css";
+
+// react boostrap imports 
+import { Media } from "react-bootstrap";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
+
+// component imports
+import Avatar from "../../components/Avatar";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import CommentEditForm from "./CommentEditForm";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
+
+// context imports
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
+// react notifications imports
 import { NotificationManager } from "react-notifications";
 
 const Comment = (props) => {
+  // destructure props
   const {
     profile_id,
     profile_image,
@@ -42,6 +56,7 @@ const Comment = (props) => {
         ],
       }));
 
+      // remove deleted comment from state
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),

@@ -1,25 +1,36 @@
+// react imports
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+// api imports
+import { axiosRes } from "../../api/axiosDefaults";
 
+// style imports
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import { axiosRes } from "../../api/axiosDefaults";
+// bootstrap imports
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import { InputGroup } from "react-bootstrap";
+
+// components imports
 import Avatar from "../../components/Avatar";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
+// notifications import
 import { NotificationManager } from "react-notifications";
 
 function CommentCreateForm(props) {
+  // destructure props
   const { event, setEvent, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
 
+  // handle change in content
   const handleChange = (e) => {
     setContent(e.target.value);
   };
 
+  // submit comment data to API
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -27,10 +38,12 @@ function CommentCreateForm(props) {
         content,
         event,
       });
+      // update comments
       setComments((prevComments) => ({
         ...prevComments,
         results: [data, ...prevComments.results],
       }));
+      // update event with new comments count
       setEvent((prevEvent) => ({
         results: [
           {
