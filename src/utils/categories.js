@@ -1,3 +1,4 @@
+// categories for forms and filters
 export const categories = [
   { key: "sport", value: "Sport" },
   { key: "music", value: "Music" },
