@@ -90,7 +90,7 @@ function EventsPage({ message }) {
                 value={type}
                 onChange={(event) => setType(event.target.value)}
                 as="select"
-                className={styles.FilterMenu}
+                className={`custom-select ${styles.FilterMenu}`}
               >
                 <option value={""}>All</option>
                 {categories.map((category) => (

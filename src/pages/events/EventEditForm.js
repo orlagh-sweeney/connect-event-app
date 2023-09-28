@@ -221,6 +221,7 @@ function EventEditForm() {
                 name="type"
                 value={type}
                 onChange={handleChange}
+                className={`custom-select ${styles.FilterMenu}`}
               >
                 {categories.map((category) => (
                   <option key={category.key} value={category.key}>
