@@ -630,9 +630,21 @@ Sign in button | The user is signd in and redirected to the homepage | PASS
 Success message | The user is shown a message that they have signed in | PASS
 
 ### Bugs
+#### Resolved Bugs
 1. Filter and Search Query Bug:
+Initially the search and filter query on EventsPage would not work together in the same URL. This was due to a typo.
 2. Date Format Bug:
+On the Edit Event Form, the event date retrieved from the API did not match they required format for React. To resovle this issue I installed the days.js react library to reformat the date to be displayed in the form for the user. 
+<br><image src="src/assets/readme/bug-eventcreate.png" width="600px"></image><br>
 3. Event Create Form Bug: 
+When filling in the EventCreate form, if the user was creating a 'Sport' event and did not need to manaully select an event category with a click (as 'Sport' is the first option), then no event category was being registered on submit. To fix this I added an extra option field to prompt the user to select an event category to avoid this issue. 
+<br><image src="src/assets/readme/bug-eventedit.png" width="600px"></image><br>
+4. Console Errors:
+A series of console errors we all addressed throughout the project including error relating to unMounted components and invalid DOM nesting. These errors were fixed and no longer appear in the console. 
+
+#### Unresolved Bugs:
+1. Similar Events: 
+Currently, the SimilarEvents panel displays does not filter out the current event from the similar events list. This issue will be addressed in the next iteration of this project. 
 
 ## Deployment
 The program was developed in Gitpod. It was then commited and pushed to GitHub.
