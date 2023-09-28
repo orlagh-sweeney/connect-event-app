@@ -50,7 +50,7 @@ function EventsPage({ message }) {
         setEvents(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

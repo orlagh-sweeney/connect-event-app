@@ -54,7 +54,7 @@ const ProfileEditForm = () => {
             setProfileData({ name, content, image });
           }
         } catch (err) {
-          console.log(err);
+        //   console.log(err);
           history.push("/");
         }
       } else {
@@ -99,7 +99,7 @@ const ProfileEditForm = () => {
         3000
       );
     } catch (err) {
-      console.log(err);
+    //   console.log(err);
       setErrors(err.response?.data);
       NotificationManager.error(
         "Error!",

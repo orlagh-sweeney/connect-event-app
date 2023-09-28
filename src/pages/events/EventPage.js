@@ -48,7 +48,7 @@ function EventPage() {
         setEvent({ results: [event] });
         setComments(comments);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

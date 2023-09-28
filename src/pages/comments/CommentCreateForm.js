@@ -59,7 +59,7 @@ function CommentCreateForm(props) {
       );
       setContent("");
     } catch (err) {
-      console.log(err);
+    //   console.log(err);
       NotificationManager.error(
         "Error!",
         "An error has occured. Your comment has not been posted",

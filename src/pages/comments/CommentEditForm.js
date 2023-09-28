@@ -52,7 +52,7 @@ function CommentEditForm(props) {
       );
       setShowEditForm(false);
     } catch (err) {
-      console.log(err);
+    //   console.log(err);
       NotificationManager.error(
         "Error!",
         "An error has occured. Your comment has not been updated.",

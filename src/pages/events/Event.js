@@ -68,7 +68,7 @@ const Event = (props) => {
         3000
       );
     } catch (err) {
-      console.log(err);
+    //   console.log(err);
       NotificationManager.error(
         "Error!",
         "An error has occured. Your event could not be deleted",
@@ -94,7 +94,7 @@ const Event = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+    //   console.log(err);
     }
   };
 
@@ -115,7 +115,7 @@ const Event = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+    //   console.log(err);
     }
   };
 

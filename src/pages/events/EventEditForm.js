@@ -59,7 +59,7 @@ function EventEditForm() {
           ? setEventData({ title, date, time, location, content, type, image })
           : history.push("/");
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     // dependencies
@@ -116,7 +116,7 @@ function EventEditForm() {
         3000
       );
     } catch (err) {
-      console.log(err);
+    //   console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

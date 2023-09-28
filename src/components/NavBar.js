@@ -49,7 +49,7 @@ const NavBar = () => {
         3000
       );
     } catch (err) {
-      console.log(err);
+    //   console.log(err);
       NotificationManager.error(
         "Error!",
         "An error has occured. Please try again",
