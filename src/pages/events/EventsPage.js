@@ -61,7 +61,7 @@ function EventsPage({ message }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [query, filter]);
+  }, [query, filter, currentUser]);
 
   return (
     <Row className="h-100 px-4 px-md-none">
