@@ -385,6 +385,20 @@ JSX Validation:
 - [ESLint](https://jshint.com/): No errors were reported when passing the final JavaScript code through the validator. <br>
 
 ### Accessibility
+[Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) was used to check the accessibility of the site and to see if there were issues. 
+
+Further investigation into improves page performance will be carried out.
+Both the Create Event and and Edit Event page lost accessibility marks due to lack of form labels, however the forms do use react-bootstrap form labels. Further investigation is needed to understand why lighthouse is not registering these labels. 
+
+Lighthouse Reports:<br>
+Home Page: <br> <image src="src/assets/readme/lighthouse-home.png" width="600px"></image><br>
+About Page: <br> <image src="src/assets/readme/lighthouse-about.png" width="600px"></image></image><br>
+Sign In Page: <br> <image src="src/assets/readme/lighthouse-signin.png" width="600px"></image></image><br>
+Sign Up Page: <br> <image src="src/assets/readme/lighthouse-signup.png" width="600px"></image></image><br>
+Create Event Page: <br> <image src="src/assets/readme/lighthouse-eventcreate.png" width="600px"></image></image><br>
+Edit Event Page: <br> <image src="src/assets/readme/lighthouse-eventedit.png" width="600px"></image></image><br>
+Profile Page: <br> <image src="src/assets/readme/lighthouse-profile.png" width="600px"></image></image><br>
+
 ### Device Testing
 The website was manually tested on the following devices with no issues:
 - Samsung Galaxy S10+
