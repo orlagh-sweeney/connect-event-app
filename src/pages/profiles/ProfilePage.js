@@ -128,7 +128,7 @@ const ProfilePage = () => {
           next={() => fetchMoreData(profileEvents, setProfileEvents)}
         />
       ) : (
-        <p>No results</p>
+        <p className="text-center">{profileData.owner} has not organised any events yet.</p>
       )}
     </>
   );

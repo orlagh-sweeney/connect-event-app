@@ -79,7 +79,7 @@ const EventsPanel = () => {
           ) : (
             <div>
               <h2 className={styles.Header}>UPCOMING EVENTS</h2>
-              <p>You have no upcoming events</p>
+              <p className="text-center">You have no upcoming events</p>
             </div>
           )}
         </>
