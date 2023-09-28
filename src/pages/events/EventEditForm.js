@@ -35,7 +35,7 @@ function EventEditForm() {
     image: "",
   });
 
-  // destructure eventData 
+  // destructure eventData
   const { title, date, time, location, content, type, image } = eventData;
 
   const imageInput = useRef(null);
@@ -90,7 +90,7 @@ function EventEditForm() {
     }
   };
 
-  // submit form data to api 
+  // submit form data to api
   // redirect users to the updated event page
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -108,7 +108,7 @@ function EventEditForm() {
     }
 
     try {
-      await axiosReq.put(`/events/${id}`, formData);
+      await axiosReq.put(`/events/${id}/`, formData);
       history.push(`/events/${id}`);
       NotificationManager.success(
         "Success!",
