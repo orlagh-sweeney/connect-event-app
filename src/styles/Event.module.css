@@ -39,3 +39,11 @@
   text-transform: uppercase;
   color: #0d1216;
 }
+
+.Owner {
+  color: #1a54e6;
+}
+
+.Owner:hover {
+    color: #ff9f1c;
+  }

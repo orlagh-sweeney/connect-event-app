@@ -148,7 +148,7 @@ const Event = (props) => {
               </div>
               <div className="d-flex align-items-center">
                 <span>
-                  Host: <strong><Link to={`/profiles/${profile_id}`}>{owner}</Link></strong>
+                  Host: <strong><Link className={styles.Owner} to={`/profiles/${profile_id}`}>{owner}</Link></strong>
                 </span>
               </div>
             </Media>

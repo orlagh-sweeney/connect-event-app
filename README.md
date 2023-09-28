@@ -52,7 +52,6 @@ The back-end repository for this full stack application can be found here: [even
     - [Accessibility](#accessibility)
     - [Device Testing](#device-testing)
     - [Browser Testing](#browser-testing)
-    - [Automated Tests](#automated-tests)
     - [Feature Testing](#feature-testing)
     - [Bugs](#bugs)
 6. [Deployment](#deployment)
@@ -379,12 +378,26 @@ Detail on the models used in this product can be found in the back-end repositor
     - The event panel display the correct event for the profile owner. 
 
 ### Code Validation
+The following validators were used to test the code:
+CSS Validation:
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/): No errors were reported when passing the final CSS code through the validator. <br>
+JSX Validation:
+- [ESLint](https://jshint.com/): No errors were reported when passing the final JavaScript code through the validator. <br>
+
 ### Accessibility
 ### Device Testing
-### Browser Testing
-### Automated Tests
-### Feature Testing
+The website was manually tested on the following devices with no issues:
+- Samsung Galaxy S10+
+- MacBook Pro 13"
+- Samsung 27" Desktop Monitor (s27a600uuu)
 
+### Browser Testing
+The website was tested on the following browsers with no issues:
+- Google Chrome
+- Mozilla Firefox
+- Microsoft Edge
+
+### Feature Testing
 #### NavBar: 
 Relevant component: NavBar.js
 TEST       | DESIRED RESULT          | PASS/FAIL |
