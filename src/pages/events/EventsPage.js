@@ -54,7 +54,7 @@ function EventsPage({ message }) {
       }
     };
 
-    setHasLoaded(false);
+    
     const timer = setTimeout(() => {
       fetchEvents();
     }, 1000);

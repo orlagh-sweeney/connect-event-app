@@ -24,6 +24,7 @@ const EventsPanel = () => {
     upcomingEvents: { results: [] },
   });
   const { upcomingEvents } = eventData;
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   // get current user
   const currentUser = useCurrentUser();
@@ -45,6 +46,7 @@ const EventsPanel = () => {
             upcomingEvents: data,
           }));
         }
+        setHasLoaded(true);
       } catch (err) {
         console.log(err);
       }
@@ -52,7 +54,7 @@ const EventsPanel = () => {
 
     handleMount();
 
-    // clean up function 
+    // clean up function
     return () => {
       isMounted = false;
     };
@@ -60,23 +62,27 @@ const EventsPanel = () => {
 
   return (
     <Container className={appStyles.Content}>
-      {upcomingEvents.results.length ? (
+      {hasLoaded ? (
         <>
-          <h2 className={styles.Header}>UPCOMING EVENTS</h2>
-          {upcomingEvents.results.slice(0, 3).map((event) => (
-            <div key={event.id}>
-              <Link to={`/events/${event.id}`}>
-                <h3 className={styles.Name}>{event.title}</h3>
-              </Link>
-              <p>{event.date}</p>
+          {upcomingEvents.results.length ? (
+            <>
+              <h2 className={styles.Header}>UPCOMING EVENTS</h2>
+              {upcomingEvents.results.slice(0, 3).map((event) => (
+                <div key={event.id}>
+                  <Link to={`/events/${event.id}`}>
+                    <h3 className={styles.Name}>{event.title}</h3>
+                  </Link>
+                  <p>{event.date}</p>
+                </div>
+              ))}
+            </>
+          ) : (
+            <div>
+              <h2 className={styles.Header}>UPCOMING EVENTS</h2>
+              <p>You have no upcoming events</p>
             </div>
-          ))}
+          )}
         </>
-      ) : !upcomingEvents.results.length ? (
-        <div>
-          <h2 className={styles.Header}>UPCOMING EVENTS</h2>
-          <p>You have no upcoming events</p>
-        </div>
       ) : (
         <Asset spinner />
       )}
