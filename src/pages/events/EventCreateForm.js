@@ -198,7 +198,7 @@ function EventCreateForm() {
                 name="type"
                 value={type}
                 onChange={handleChange}
-                className={`custom-select ${styles.FilterMenu}`}
+                custom
               >
                 <option value="none" className="d-none">select a category</option>
                 {categories.map((category) => (
