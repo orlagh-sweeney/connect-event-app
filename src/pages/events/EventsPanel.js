@@ -6,7 +6,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
 // react bootstrap imports
-import { Container } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 
 // style imports
 import appStyles from "../../App.module.css";

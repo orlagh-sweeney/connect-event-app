@@ -8,12 +8,17 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 // style imports
 import styles from "../../styles/Event.module.css";
-
-// react boostrap imports 
-import Button from "react-bootstrap/Button";
 import btnStyles from "../../styles/Button.module.css";
+
+// react boostrap imports
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Media from "react-bootstrap/Media";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+
+// context imports
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 // component imports
 import { DropdownMenu } from "../../components/DropdownMenu";
@@ -148,7 +153,15 @@ const Event = (props) => {
               </div>
               <div className="d-flex align-items-center">
                 <span>
-                  Host: <strong><Link className={styles.Owner} to={`/profiles/${profile_id}`}>{owner}</Link></strong>
+                  Host:{" "}
+                  <strong>
+                    <Link
+                      className={styles.Owner}
+                      to={`/profiles/${profile_id}`}
+                    >
+                      {owner}
+                    </Link>
+                  </strong>
                 </span>
               </div>
             </Media>
@@ -161,13 +174,15 @@ const Event = (props) => {
           </Card.Body>
           <Card.Body className={styles.Body}>
             <Card.Text className="align-items-center d-block text-left">
-              <span className={styles.Heading}>Location:</span><br />
+              <span className={styles.Heading}>Location:</span>
+              <br />
               <span>{location}</span>
             </Card.Text>
           </Card.Body>
           <Card.Body className={styles.Body}>
             <Card.Text className="align-items-center d-block text-left">
-              <span className={styles.Heading}>Description:</span><br />
+              <span className={styles.Heading}>Description:</span>
+              <br />
               <span className="text-left">{content}</span>
             </Card.Text>
           </Card.Body>
@@ -239,7 +254,7 @@ const Event = (props) => {
           <Card.Body className={styles.Body}>
             <Media className="align-items-center justify-content-between">
               <div className="d-flex align-items-center">
-                  <strong>{date}</strong>
+                <strong>{date}</strong>
               </div>
               <div className="d-flex align-items-center">
                 <span>Attending: {attending_count}</span>
@@ -251,16 +266,10 @@ const Event = (props) => {
           </Card.Body>
           <Card.Body className={styles.Body}>
             <Card.Text className="text-left mb-0">
-                {title && (
-                  <span className={styles.Title}>
-                    {title}
-                  </span>
-                )}
+              {title && <span className={styles.Title}>{title}</span>}
             </Card.Text>
             <Card.Text className="text-left">
-                {location && (
-                  <span>{location}</span>
-                )}
+              {location && <span>{location}</span>}
             </Card.Text>
           </Card.Body>
           <Card.Body className={styles.Body}>
@@ -273,7 +282,9 @@ const Event = (props) => {
                   <OverlayTrigger
                     placement="top"
                     overlay={
-                      <Tooltip>You cannot un-register from your own event.</Tooltip>
+                      <Tooltip>
+                        You cannot un-register from your own event.
+                      </Tooltip>
                     }
                   >
                     <Button

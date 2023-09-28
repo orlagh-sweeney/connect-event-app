@@ -4,7 +4,9 @@ import { useHistory } from "react-router";
 
 // react bootstrap imports
 import Dropdown from "react-bootstrap/Dropdown";
-import { Button, Modal } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+
 
 // style imports
 import styles from "../styles/DropdownMenu.module.css";

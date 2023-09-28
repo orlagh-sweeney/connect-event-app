@@ -12,7 +12,7 @@ import btnStyles from "../../styles/Button.module.css";
 // bootstrap imports
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { InputGroup } from "react-bootstrap";
+import InputGroup from "react-bootstrap/InputGroup";
 
 // components imports
 import Avatar from "../../components/Avatar";

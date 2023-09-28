@@ -9,8 +9,9 @@ import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/Comment.module.css";
 
 // react boostrap imports 
-import { Media } from "react-bootstrap";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import Media from "react-bootstrap/Media";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 // component imports
 import Avatar from "../../components/Avatar";

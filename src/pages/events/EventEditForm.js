@@ -12,7 +12,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-import { Image } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 
 // style imports
 import styles from "../../styles/EventCreateEditForm.module.css";

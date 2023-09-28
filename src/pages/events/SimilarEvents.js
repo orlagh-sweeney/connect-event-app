@@ -6,7 +6,8 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
 // react bootstrap imports
-import { Card, Container } from "react-bootstrap";
+import Card  from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 
 // style imports
 import styles from "../../styles/SimilarEvents.module.css";
