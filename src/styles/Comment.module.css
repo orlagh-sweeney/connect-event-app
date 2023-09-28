@@ -1,15 +1,15 @@
 .Owner {
-    color: #1A54E6;
-    margin-right: 8px;
-  }
-  
-  .Date {
-    font-weight: lighter;
-    color: #0D1216;
-    font-size: .7rem;
-  }
+  color: #1a54e6;
+  margin-right: 8px;
+}
 
-  .Content {
-    margin-left: 4rem;
-    margin-top: 2px;
-  }
+.Date {
+  font-weight: lighter;
+  color: #0d1216;
+  font-size: 0.7rem;
+}
+
+.Content {
+  margin-left: 4rem;
+  margin-top: 2px;
+}

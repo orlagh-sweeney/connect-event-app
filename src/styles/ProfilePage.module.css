@@ -1,23 +1,23 @@
 .ProfileImage {
-    object-fit: cover;
-    height: 120px;
-    width: 120px;
-    margin: 4px;
-  }
+  object-fit: cover;
+  height: 120px;
+  width: 120px;
+  margin: 4px;
+}
 
-  .Stat {
-    font-size: 1.5rem;
-  }
+.Stat {
+  font-size: 1.5rem;
+}
 
-  .Events {
-    color: #1a54e6;
-    font-size: 1.75rem;
-    font-weight: 700;
+.Events {
+  color: #1a54e6;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 991px) {
+  .ProfileImage {
+    width: 250px;
+    height: 250px;
   }
-  
-  @media screen and (max-width: 991px) {
-    .ProfileImage {
-      width: 250px;
-      height: 250px;
-    }
-  }
+}

@@ -1,16 +1,16 @@
 .Header {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 19px;
-    text-align: center;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #1a54e6;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1a54e6;
+}
+
+@media screen and (max-width: 991px) {
+  .Header {
+    font-size: 18px;
   }
-  
-  @media screen and (max-width: 991px) {
-      .Header {
-        font-size: 18px;
-      }
-    }
+}

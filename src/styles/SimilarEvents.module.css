@@ -1,29 +1,29 @@
 .Header {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 19px;
-    text-align: center;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #1a54e6;
-  }
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1a54e6;
+}
 
 .Name {
-    font-size: 1rem;
-    color: #184AB1;
+  font-size: 1rem;
+  color: #184ab1;
 }
 
 .Name:hover {
-    color: #FF9F1C;
+  color: #ff9f1c;
 }
 
 .Card {
-    width: 12rem;
+  width: 12rem;
 }
 
 @media screen and (max-width: 991px) {
-    .Card {
-      width: 100%;
-    }
+  .Card {
+    width: 100%;
   }
+}

@@ -1,7 +1,7 @@
 // react importss
 import React, { useEffect, useState } from "react";
 
-// api imports 
+// api imports
 import { axiosReq } from "../../api/axiosDefaults";
 
 // react bootstrap impots
@@ -10,11 +10,11 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-// style imports 
+// style imports
 import appStyles from "../../App.module.css";
 import styles from "../../styles/EventsPage.module.css";
 
-// component imports 
+// component imports
 import Event from "./Event";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -22,7 +22,7 @@ import EventsPanel from "./EventsPanel";
 import { categories } from "../../utils/categories";
 import { fetchMoreData } from "../../utils/utils";
 
-// context imports 
+// context imports
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function EventsPage({ message }) {
@@ -40,7 +40,7 @@ function EventsPage({ message }) {
   // get current user
   const currentUser = useCurrentUser();
 
-  // fetch events from api 
+  // fetch events from api
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -54,7 +54,6 @@ function EventsPage({ message }) {
       }
     };
 
-    
     const timer = setTimeout(() => {
       fetchEvents();
     }, 1000);
@@ -108,7 +107,7 @@ function EventsPage({ message }) {
           <>
             {events.results.length ? (
               <InfiniteScroll
-              // eslint-disable-next-line
+                // eslint-disable-next-line
                 children={events.results.map((event) => (
                   <Event key={event.id} {...event} setEvents={setEvents} />
                 ))}
@@ -129,10 +128,11 @@ function EventsPage({ message }) {
           </Container>
         )}
       </Col>
-      {currentUser && 
+      {currentUser && (
         <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
           <EventsPanel />
-        </Col>}
+        </Col>
+      )}
     </Row>
   );
 }
