@@ -27,6 +27,9 @@ import { removeTokenTimestamp } from "../utils/utils";
 // hook imports
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
+// notifcation import
+import { NotificationManager } from "react-notifications";
+
 const NavBar = () => {
   // get current user
   const currentUser = useCurrentUser();
@@ -40,8 +43,18 @@ const NavBar = () => {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
       removeTokenTimestamp();
+      NotificationManager.success(
+        "Come back soon!",
+        "You have been successfully logged out",
+        3000
+      );
     } catch (err) {
       console.log(err);
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Please try again",
+        3000
+      );
     }
   };
 

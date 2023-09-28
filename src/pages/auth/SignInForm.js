@@ -22,6 +22,9 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
 
+// notifcation import
+import { NotificationManager } from "react-notifications";
+
 /*
 Sign in logic from Code Institute Moments walkthrough project:
 */
@@ -59,8 +62,18 @@ const SignInForm = () => {
       setCurrentUser(data.user);
       setTokenTimestamp(data);
       history.goBack();
+      NotificationManager.success(
+        "Welcome back!",
+        `Nice to see you ${username}`,
+        3000
+      );
     } catch (err) {
       setErrors(err.response?.data);
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Please try log in again",
+        3000
+      );
     }
   };
 

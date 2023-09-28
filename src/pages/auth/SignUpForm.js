@@ -20,6 +20,9 @@ import axios from "axios";
 // hook imports
 import { useRedirect } from "../../hooks/useRedirect";
 
+// notifcation import
+import { NotificationManager } from "react-notifications";
+
 /*
 Sign up logic from Code Institute Moments walkthrough project:
 */
@@ -54,8 +57,18 @@ const SignUpForm = () => {
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
+      NotificationManager.success(
+        "Successful registration!",
+        "Sign in to access all features",
+        3000
+      );
     } catch (err) {
       setErrors(err.response?.data);
+      NotificationManager.error(
+        "Error!",
+        "An error has occured. Please try log in again",
+        3000
+      );
     }
   };
 

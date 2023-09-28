@@ -380,6 +380,7 @@ Sign In nav link | Brings the user to the login page | PASS
 Sign Out nav link | Signs the user and returns the user to the home page | PASS
 Profile nav link | Brings the user to their own proile page | PASS 
 Create Event nav link | Brings logged in users to the /events/create | PASS
+Logout success message | The user is shown a message that they have been signout | PASS
 
 #### Home:
 Relevant component: EventsPage
@@ -569,6 +570,7 @@ Unique username | If the user chooses a username that already exists in the data
 Short password | If their chosen password is too short/weak they are shown a warning | PASS
 Confirm password | The user must confirm their password in order to sign up. The passwords must match. | PASS
 Sign up button | A new user is created in the database and the user is redirected to the login page | PASS
+Success message | The user is shown a message that they have signed up | PASS
 
 #### Sign In:
 TEST       | DESIRED RESULT          | PASS/FAIL |
@@ -577,6 +579,7 @@ Redirect | Only logged out users can access the sign up page. Logged in users ar
 Form fields | The correct form fields are displayed | PASS
 Credentials | If the input credentials do not match,  the user is shown a warning that they were incorrect. | PASS
 Sign in button | The user is signd in and redirected to the homepage | PASS
+Success message | The user is shown a message that they have signed in | PASS
 
 ### Bugs
 1. Filter and Search Query Bug:
