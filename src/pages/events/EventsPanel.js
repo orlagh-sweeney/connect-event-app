@@ -45,8 +45,8 @@ const EventsPanel = () => {
             ...prevState,
             upcomingEvents: data,
           }));
+          setHasLoaded(true);
         }
-        setHasLoaded(true);
       } catch (err) {
         console.log(err);
       }

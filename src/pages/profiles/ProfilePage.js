@@ -79,7 +79,7 @@ const ProfilePage = () => {
           </p>
           <p className="m-2">
             <strong>Bio: </strong>
-            {profileData.content}dfdvd
+            {profileData.content}
           </p>
         </Col>
         {is_owner && (
