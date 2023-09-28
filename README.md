@@ -456,12 +456,14 @@ Delete Success Message | The user is shown a message that their event has been d
 Event Owner Confirms Deletion | If the owner confirms that they want to delete the event, the event is deleted and the user is redirected to the home page | PASS
 
 #### Similar Events:
+Relevant component: SimilarEvents
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
 Displays similar events | The SimilarEvent components displays up to 3 similar Events based on the event type | PASS
 Filter out current event | The component filters out the current event from the events being displayed | FAIL
 
 #### Create Event Form:
+Relevant component: EventCreateForm
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
 Loggged in user | If the user is logged in, the create event page laods | PASS
@@ -472,28 +474,92 @@ Errors | Appropriate errors relating to the input and image upload fields are di
 Create Event Button | Adds the event to the database and redirects the user to the new event page | PASS
 Success message | The user is shown a message that their event has been created | PASS
 Cancel Button | Returns the user back to the page that they were previously on | PASS
+Success message | The owner is shown a message that their event has been created | PASS
 
 #### Edit Event Form:
+Relevant componet: EventEditForm
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Event owner | If the user is the event owner, the edit event page loads | PASS
+Unauthenticated user | If the user is not logged in and/or is not the event owner, the user is redirected to the home page | PASS
+Pre-populated form fields | The form loads and is pre-populated with the correct data from the database | PASS 
+Update Button | Updates the event data in the database and redirects the owner back to the newly updated event page | PASS
+Success message | The owner is shown a message that their event has been submitted | PASS
+
 #### Comments:
+Relevant components: Comment, CreateCommentForm, EditCommentForm
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Component Diplay | The comment component loads within the EventPage | PASS
+Correct comments load | The componet displays the correct comments relating to the event | PASS
+Ordering | Comments are displayed with the newest comments at the top | PASS
+No Comments | If there are no comments, a message displayed to the user | PASS
+Like Button | Each comment displays a like button | PASS
+Likes Count | Each comment display the numner of likes that it has | PASS
+CreateCommentForm | The form is only displayed to logged in users. When the user clicks the 'post' button the comment is added to the database and the comment is displayed in the component | PASS
+DropdownMenu component | If the current user is the comment owner, the DropdownMenu component renders. This component displays the edit and delete comment buttons | PASS 
+Edit Comment Button | Reveals the CommentEditForm | PASS
+CommentEditForm | Loads the existing comment for the user to edit. The 'update' button sends the updated comment to the API and udpates the component to display the comment. The 'cancel' button closes the CommentEditForm | PASS
+Delete Comment Button | Displays a modal asking the comment owner to confirm they want to delete the comment | PASS
+Confirm Delete | If the users confirms deletion, the comment is removed from the database and the comment component updates to reflect this | PASS
+Delete Success Message | The user is shown a message that their comment has been deleted | PASS
+Updated Success Message | The user is shown a message that their comment has been updated | PASS
+Create Success Message | The user is shown a message that their comment has been created | PASS
+
 #### Like Button:
+Relevant component: Comment
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Display | Both logged in and logged out users can see the like button and like count | PASS
+Logged out users | Logged out users are shown a prompt to login if they want to like comments | PASS
+Logged in users | Logged in users can click the like button | PASS
+On click | When a user likes comment the heart changes to a solid heart icon. When a user unlikes a comment the heart changes back to a not-solid heat icon | PASS
+Like count | When a comment is liked, the likes count increases by 1. When a comment is unliked, the comment count decreases by 1. 
+Comment owners | Comment owners cannot like their own comment. A message is displayed to tell them. | PASS
+
 #### Profile Page:
+Relevant component: ProfilePage
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Logged out users | Logged out users cannot view a profile page. They are prompted to sign in to access this page. | PASS
+Logged in users | Logged in users can view a profile page. | PASS
+Profile owner | If the current user is the profile owner, the DropdownMenu component renders. This component displays the edit profile, change password and change username buttons. Each button brings the profile owner to the relevant form. | PASS
+Profile Owner | If the current user is the profile owner the EventsPanel renders displaying their upcoming evnets. | PASS
+Profile Details | The correct profile details are loaded including name, member since and bio content | PASS
+Profile Stats | User stats are displayed including 
+Events Organised | The events organised by the profile owner are loaded | PASS
+
 #### Edit Profile Form:
+Relevant component: ProfileEditForm
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
-#### Change password:
+Profile owner | If the user is the profile owner they can access the edit profile form | PASS
+Unauthenticated user | If the user is not logged in and/or is not the profile owner, the user is redirected to the home page | PASS
+Pre-populated form fields | The form loads and is pre-populated with the correct data from the database | PASS 
+Update Button | Updates the profile data in the database and redirects the owner back to their newly updated profile page | PASS
+Success message | The owner is shown a message that their profile has been updated | PASS
+
+#### Change Password:
+Relevant component: PasswordForm
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
-#### Change username:
+Profile owner | If the user is the profile owner they can access the edit profile form | PASS
+Unauthenticated user | If the user is not logged in and/or is not the profile owner, the user is redirected to the home page | PASS
+UserPasswordForm | The form loads with the correct form fields | PASS 
+Confirm password | The profile owner must confirm their new password | PASS 
+Save Button | Updates the password in the database and redirects the owner back to their profile page | PASS
+Success message | The owner is shown a message that their password has been updated | PASS
+
+#### Change Username:
+Relevant component: UsernameForm
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Profile owner | If the user is the profile owner they can access the edit profile form | PASS
+Unauthenticated user | If the user is not logged in and/or is not the profile owner, the user is redirected to the home page | PASS
+UserPasswordForm | The form loads and is pre-populated with their current username | PASS 
+Save Button | Updates the username in the database and redirects the owner back to their profile page | PASS
+Success message | The owner is shown a message that their username has been updated | PASS
+
 #### Sign Up:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
@@ -504,7 +570,7 @@ Short password | If their chosen password is too short/weak they are shown a war
 Confirm password | The user must confirm their password in order to sign up. The passwords must match. | PASS
 Sign up button | A new user is created in the database and the user is redirected to the login page | PASS
 
-#### Sign in:
+#### Sign In:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
 Redirect | Only logged out users can access the sign up page. Logged in users are redirected to the homepage | PASS
