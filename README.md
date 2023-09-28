@@ -171,8 +171,11 @@ Detail on the models used in this product can be found in the back-end repositor
 ### NavBar
 - The website has a responsive navbar component. 
 - The navbar conditionally renders navlink based on the user logged in status.
-- Logged out users can see Home, Sign in and Sign up navlink.
-- Logged in user can see Home, Create Event, Profile and Sign out navlinks. 
+- Logged out users can see Home, About, Sign in and Sign up navlinks.
+- Logged in user can see Home, About, Create Event, Profile and Sign out navlinks. 
+
+### Home
+- The home page displays all events
 
 ### Search Bar
 - The home page has a search bar where user can type a query which is checked against event names and event owners. 
@@ -182,7 +185,7 @@ Detail on the models used in this product can be found in the back-end repositor
 
 ### Event Card
 - Event details are displayed in a react bootstrap card: this is the Event component. 
-- The level of detail differs depending on whether the card is being displayed on the EventPage or EventsPage. 
+- The level of detail differs depending on whether the card is being displayed on the EventPage, ProfilePage or EventsPage. 
 
 ### Attending Button
 - Each event contains an button for users to register whether they are attending an event or not. 
@@ -192,7 +195,7 @@ Detail on the models used in this product can be found in the back-end repositor
 - It displays 3 upcoming events that the user is attending.
 - This panel is used on the EventsPage and ProfilePage.  
 
-### Event Page
+### Event Detail Page
 - The EventPage component loads event specific data based on event id.
 - The EventPage displays the Comment, Event and SimilarEvents components. 
 
@@ -362,6 +365,7 @@ Detail on the models used in this product can be found in the back-end repositor
 ### Feature Testing
 
 #### NavBar: 
+Relevant component: NavBar.js
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
 Logo | When the logo is clicked, the user is brought to the home page | PASS
@@ -370,11 +374,23 @@ Unauthenticated user | If a user is not logged in, the navigation menu displays 
 Mobile menu | On mobile devices, a burger menu is used to display navlinks | PASS
 Mobile menu close | When a user clicks a navlink on the mobile menu the menu closes | PASS
 Home nav link | Brings the user to the home page | PASS
+About nav link | Brings the user to the about page | PASS
 Sign Up nav link | Brings the user to the signup page | PASS
 Sign In nav link | Brings the user to the login page | PASS
 Sign Out nav link | Signs the user and returns the user to the home page | PASS
-Profiel nav link | Brings the user to their own proile page | PASS 
+Profile nav link | Brings the user to their own proile page | PASS 
 Create Event nav link | Brings logged in users to the /events/create | PASS
+
+#### Home:
+Relevant component: EventsPage
+TEST       | DESIRED RESULT          | PASS/FAIL |
+---------- | ----------------------- | --------- |
+Search bar | The search bar renders on the home page | PASS
+Events Filter | The filter menu render on the home page | PASS
+Events load | A list of all upcoming events are displayed | PASS
+Spinner | A spinner is displayed while events are fetched from the API | PASS  
+EventsPanel | Logged in users can see the EventsPanel | PASS
+Infinite Scroll | Events continously load as the users scrolls so the user does not have to click a button to load more events | PASS
 
 #### Search Bar:
 TEST       | DESIRED RESULT          | PASS/FAIL |
@@ -386,28 +402,77 @@ No results | If there are no matching results, a message is displayed to the use
 #### Events Filter:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
-Dropdown menu visibility | When clicked, the list of filters are shown to the user | PASS
+Filters are visible | When the filter dropdown menu is clicked, a list of filters are shown to the user | PASS
 Results | When a user selects a filter, relevant results are displayed based on the filter | PASS
 No results | If there are no matching results for a given filter, a message is displayed to the user | PASS
 
-#### Event Card:
+#### Event Card: 
+Relevent component: Event
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Card renders | The event card renders on the home page, event detail page, and user profile page | PASS
+Event data | The correct event data is displayed on the event card | PASS
+
 #### Attending Button:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Logged out user - button text | The button text says 'Register' | PASS
+Logged out user - button colour | Blue' | PASS
+Logged out user - message overlay | The message reads 'Log in to attend this event' | PASS
+Logged in user (not registered) - button text | If a user has not registered for an event the button says 'Register' | PASS
+Logged in user (not registered) - button colour | Blue | PASS
+Logged in user (not registered) - message overlay | The message reads 'Click to register' | PASS
+Logged in user (registered) - button text | If a user is already registered for an event the button says 'Going' | PASS
+Logged in user (registered) - button colour | Orange | PASS
+Logged in user (registered) - message overlay | The message reads 'Click to unregister' | PASS
+Event Owner - buttn text | The button text says 'Going' | PASS
+Event Owner - button colour | Orange | PASS
+Event Owner - message overlay | 'You cannot un-register from your own event | PASS
+User registers | When a person clicks the button to register, the attending count increases by 1.  | PASS
+User unregisters | When a person unregisters, the attending count decreases by 1 | PASS
+
 #### Events Panel:
+Relevant component: EventsPanel
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
-#### Event Page:
+Logged out users | Logged out users cannot see the EventsPanel | PASS
+Logged in users | Logged in users can see the EventsPanel | PASS
+Events the user is attending | The EventsPanel displays 3 upcoming events that the user is attending | PASS
+Order of events | The events are displayed in order of which event has the nearest starting date | PASS
+No events | If the user has not registered for any events the EventsPanel displays the message, "You have no upcoming evnets" | PASS
+
+#### Event Detail Page:
+Relevant component: EventPage
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Unique url | Each event detail page has a unique url using the event id | PASS
+Correct data laods | The event page load the correct event data | PASS
+Comments Component | The event page renders the comment component | PASS
+Similar Events Component | The event page renders the similar events component | PASS
+DropdownMenu component | If the current user is the event owner, the DropdownMenu component renders. This component displays the edit and delete event buttons | PASS 
+Edit Event Button | Brings the event owner to the Edit Event Form | PASS
+Delete Event Button | Displays a modal asking the event owner to confirm they want to delete the event | PASS
+Delete Success Message | The user is shown a message that their event has been deleted | PASS
+Event Owner Confirms Deletion | If the owner confirms that they want to delete the event, the event is deleted and the user is redirected to the home page | PASS
+
 #### Similar Events:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Displays similar events | The SimilarEvent components displays up to 3 similar Events based on the event type | PASS
+Filter out current event | The component filters out the current event from the events being displayed | FAIL
+
 #### Create Event Form:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
+Loggged in user | If the user is logged in, the create event page laods | PASS
+Logged out user | If the user is not logged in, they are redirected to the home page | PASS
+Create event form | The form loads with the correct form fields | PASS
+Required fields | If the user does not complete a required field they are shown a message that it needs to be completed | PASS 
+Errors | Appropriate errors relating to the input and image upload fields are displayed to the user | PASS
+Create Event Button | Adds the event to the database and redirects the user to the new event page | PASS
+Success message | The user is shown a message that their event has been created | PASS
+Cancel Button | Returns the user back to the page that they were previously on | PASS
+
 #### Edit Event Form:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
