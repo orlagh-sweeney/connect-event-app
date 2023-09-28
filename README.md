@@ -669,6 +669,17 @@ Images were sourced from the following resources:
     - Default user image is [blank-profile-picture-mystery-man-973460/](https://pixabay.com/vectors/blank-profile-picture-mystery-man-973460/) by [Stephaine Edwards](https://pixabay.com/users/wanderercreative-855399/)
 - [Pexals](https://www.pexels.com/):
     - The hero image is [arc-de-triomf-gateway-in-barcelona-spain-7931932/](https://www.pexels.com/photo/arc-de-triomf-gateway-in-barcelona-spain-7931932/) by [Gintarė Kairaitytė](https://www.pexels.com/@gintare-kairaityte-11923111/)
+    - The following images were used to create sample events and profiles:
+        - [tapas-de-los-suenos-14009279/](https://www.pexels.com/photo/tapas-de-los-suenos-14009279/) by [Bas Liners](https://www.pexels.com/@studio1345/)
+        - [wine-glass-bottle-87224/](https://www.pexels.com/photo/wine-glass-bottle-87224/) by [Timur Saglambilek](https://www.pexels.com/@marketingtuig/)
+        - [beautiful-woman-smiling-for-a-photo-1820559/](https://www.pexels.com/photo/beautiful-woman-smiling-for-a-photo-1820559/) by [Mwabonje Ringa](https://www.pexels.com/@mwabonje/)
+        - [selective-focus-photography-of-woman-holding-red-ceramic-cup-789303/](https://www.pexels.com/photo/selective-focus-photography-of-woman-holding-red-ceramic-cup-789303/) by [Anastasiya Lobanovskaya](https://www.pexels.com/@annetnavi/)
+        - [a-man-standing-while-holding-a-yoga-mat-8436562/](https://www.pexels.com/photo/a-man-standing-while-holding-a-yoga-mat-8436562/) by [Yan Krukau](https://www.pexels.com/@yankrukov/)
+        - [entrance-to-parc-guell-11816123/](https://www.pexels.com/photo/entrance-to-parc-guell-11816123/) by [Mehmet Turgut Kirkgoz](https://www.pexels.com/@tkirkgoz/)
+        - [people-on-the-hill-overlooking-the-city-5350999/](https://www.pexels.com/photo/people-on-the-hill-overlooking-the-city-5350999/) by [Mario Schmidt](https://www.pexels.com/@msbln/)
+        - [laughing-young-diverse-girlfriends-dancing-and-drinking-beer-during-event-5935240/](https://www.pexels.com/photo/laughing-young-diverse-girlfriends-dancing-and-drinking-beer-during-event-5935240/) by [Kampus Production](https://www.pexels.com/@kampus/)
+        - [women-exercising-at-the-beach-9004309/](https://www.pexels.com/photo/women-exercising-at-the-beach-9004309/) by [olia danilevich](https://www.pexels.com/photo/women-exercising-at-the-beach-9004309/)
+
 - Canva:
     - Canva was used to create the a custom upload image icon.
 
