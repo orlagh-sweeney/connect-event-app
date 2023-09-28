@@ -31,6 +31,7 @@ function EventPage() {
   // store event id from URL
   const { id } = useParams();
   const [event, setEvent] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   // get current user data
   const currentUser = useCurrentUser();
@@ -47,6 +48,7 @@ function EventPage() {
         ]);
         setEvent({ results: [event] });
         setComments(comments);
+        setHasLoaded(true);
       } catch (err) {
         // console.log(err);
       }
@@ -58,47 +60,53 @@ function EventPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={{ span: 8, offset: 2 }}>
-        <Event {...event.results[0]} setEvents={setEvent} eventPage />
-        <Container>
-          {currentUser ? (
-            <CommentCreateForm
-              profile_id={currentUser.profile_id}
-              profileImage={profile_image}
-              event={id}
-              setEvent={setEvent}
-              setComments={setComments}
-            />
-          ) : comments.results.length ? (
-            "Comments"
-          ) : null}
-          {comments.results.length ? (
-            <InfiniteScroll
-              // eslint-disable-next-line
-              children={comments.results.map((comment) => (
-                <Comment
-                  key={comment.id}
-                  {...comment}
+        {hasLoaded ? (
+          <>
+            <Event {...event.results[0]} setEvents={setEvent} eventPage />
+            <Container>
+              {currentUser ? (
+                <CommentCreateForm
+                  profile_id={currentUser.profile_id}
+                  profileImage={profile_image}
+                  event={id}
                   setEvent={setEvent}
                   setComments={setComments}
                 />
-              ))}
-              dataLength={comments.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!comments.next}
-              next={() => fetchMoreData(comments, setComments)}
-            />
-          ) : currentUser ? (
-            <div className="text-center my-2">
-              Be the first to leave a comment!
-            </div>
-          ) : (
-            <div className="text-center my-2">No comments yet</div>
-          )}
-        </Container>
-        <hr />
-        <Container className={appStyles.Content}>
-          <SimilarEvents {...event.results[0]} setEvents={setEvent} />
-        </Container>
+              ) : comments.results.length ? (
+                "Comments"
+              ) : null}
+              {comments.results.length ? (
+                <InfiniteScroll
+                  // eslint-disable-next-line
+                  children={comments.results.map((comment) => (
+                    <Comment
+                      key={comment.id}
+                      {...comment}
+                      setEvent={setEvent}
+                      setComments={setComments}
+                    />
+                  ))}
+                  dataLength={comments.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!comments.next}
+                  next={() => fetchMoreData(comments, setComments)}
+                />
+              ) : currentUser ? (
+                <div className="text-center my-2">
+                  Be the first to leave a comment!
+                </div>
+              ) : (
+                <div className="text-center my-2">No comments yet</div>
+              )}
+            </Container>
+            <hr />
+            <Container className={appStyles.Content}>
+              <SimilarEvents {...event.results[0]} setEvents={setEvent} />
+            </Container>
+          </>
+        ) : (
+          <Asset spinner />
+        )}
       </Col>
     </Row>
   );
