@@ -172,70 +172,91 @@ Detail on the models used in this product can be found in the back-end repositor
 - The website has a responsive navbar component. 
 - The navbar conditionally renders navlink based on the user logged in status.
 - Logged out users can see Home, About, Sign in and Sign up navlinks.
-- Logged in user can see Home, About, Create Event, Profile and Sign out navlinks. 
+- Logged in user can see Home, About, Create Event, Profile and Sign out navlinks. <br>
+<br><image src="src/assets/readme/navbar.png" width="600px"></image>
 
 ### Home
 - The home page displays all events
+<br><image src="src/assets/readme/home.png" width="600px"></image>
 
 ### Search Bar
-- The home page has a search bar where user can type a query which is checked against event names and event owners. 
+- The home page has a search bar where user can type a query which is checked against event names and event owners.
+<br><image src="src/assets/readme/navbar.png" width="600px"></image> 
 
 ### Events Filter
 - The home page has a filter menu which filters events based on event type. 
+<br><image src="src/assets/readme/filter.png" width="600px"></image> 
 
 ### Event Card
 - Event details are displayed in a react bootstrap card: this is the Event component. 
-- The level of detail differs depending on whether the card is being displayed on the EventPage, ProfilePage or EventsPage. 
+- The level of detail differs depending on whether the card is being displayed on the EventPage, ProfilePage or EventsPage.
+<br><image src="src/assets/readme/eventcard.png" width="600px"></image>  
 
 ### Attending Button
 - Each event contains an button for users to register whether they are attending an event or not. 
+<br><image src="src/assets/readme/attendingbutton.png" width="100px"></image> 
 
 ### Events Panel
 - The EventsPanel component is only visible to logged in users.
 - It displays 3 upcoming events that the user is attending.
 - This panel is used on the EventsPage and ProfilePage.  
+<br><image src="src/assets/readme/eventspanel.png" width="300px"></image> 
 
 ### Event Detail Page
 - The EventPage component loads event specific data based on event id.
 - The EventPage displays the Comment, Event and SimilarEvents components. 
+<br><image src="src/assets/readme/eventdetail.png" width="600px"></image> 
 
 ### Similar Events 
 - Similar events are displayed using react bootstrap cards: this is the SimilarEvents component.m
 - Up to 3 events will be shown. 
 - The user can click on the event which will bring them to the relevant event page.
+<br><image src="src/assets/readme/similarevents.png" width="600px"></image> 
 
 ### Create Event Form
 - This form allows users to create an event. 
+<br><image src="src/assets/readme/createevent.png" width="600px"></image> 
+<image src="src/assets/readme/createevent2.png" width="600px"></image> 
 
 ### Edit Event Form
 - This pre-populated form allows event owners to edit their event. 
+<br><image src="src/assets/readme/editevent.png" width="600px"></image> 
 
 ### Comments
 - The comment form allows users to add a comment underneath an event. 
+<br><image src="src/assets/readme/comments.png" width="600px"></image> 
 - The edit comment form is a pre-populated form that allows comment owners to edit their comments. 
+<br><image src="src/assets/readme/commentedit.png" width="600px"></image> 
 
 ### Like Button
 - Comments have a like button so users can like and unlike comments. 
+<br><image src="src/assets/readme/likebutton.png" width="100px"></image> 
 
 ### Profile Page
 - Each user has a unique profile page. 
 - The profile page diplays user information, user stats and events that the profile owner has organised. 
 - The profile owner can also see the Events Panel display 3 upcoming events. 
+<br><image src="src/assets/readme/profilepage.png" width="600px"></image> 
 
 ### Edit Profile Form
 - This form allows users to edit their profile. 
+<br><image src="src/assets/readme/editprofile.png" width="600px"></image> 
 
 ### Change password
 - This form allows users to change their password. 
+<br><image src="src/assets/readme/changepassword.png" width="600px"></image> 
 
 ### Change username
 - This form allows users to change their username. 
+<br><image src="src/assets/readme/changeusername.png" width="600px"></image> 
 
 ### Sign Up
 - This form allows users to create an account. 
+<br><image src="src/assets/readme/signup.png" width="600px"></image> 
 
 ### Sign in 
 - This form allows users to login to the application. 
+<br><image src="src/assets/readme/signin.png" width="600px"></image> 
 
 ## Technologies Used
 ### Languages
