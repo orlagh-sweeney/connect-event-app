@@ -150,6 +150,10 @@ Detail on the models used in this product can be found in the back-end repositor
 
 ### Wireframes
 - [Balsamiq](https://balsamiq) was used to develop wireframes for mobile and desktop in the planning stage of the website. <br>
+    - Home Page: <br> <image src="src/assets/readme/wireframe-home-desk.png" width="600px"></image> <br> <image src="src/assets/readme/wireframe-home-mob.png" width="300px"></image>
+    - Event Detail Page: <br> <image src="src/assets/readme/wireframe-event-desk.png" width="600px"></image> <br> <image src="src/assets/readme/wireframe-event-mob.png" width="300px"></image>
+    - Event Create Form Page: <br> <image src="src/assets/readme/wireframe-create-desk.png" width="600px"></image> <br> <image src="src/assets/readme/wireframe-create-mob.png" width="300px"></image>
+    - Profile Page: <br> <image src="src/assets/readme/wireframe-profile-desk.png" width="600px"></image> <br> <image src="src/assets/readme/wireframe-profile-mob.png" width="300px"></image>
 
 ### Components
 - The project was built using React and incorporates a series of reusbable react components including the following:
