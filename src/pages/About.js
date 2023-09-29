@@ -25,7 +25,7 @@ function AboutPage() {
         <Row>
           <Col className="text-center mt-4">
             <h2 className={`${styles.Header} text-center mt-4 pb-2`}>
-              Who are we?
+              What is Connect Bcn?
             </h2>
             <p>
               Connect Bcn is Barcelona&apos;s go-to platform to find out
@@ -67,6 +67,19 @@ function AboutPage() {
             <Link to={`/`} className={`${styles.Button} p-2 ml-4`}>
               Discover Events
             </Link>
+          </Col>
+        </Row>
+      </Container>
+
+      <Container>
+        <Row>
+          <Col className="text-center mt-4">
+            <h2 className={`${styles.Header} text-center mt-4 pb-2`}>
+              Disclaimer
+            </h2>
+            <p className="mb-0">
+              This website has been created for educational purposes only.
+            </p>
           </Col>
         </Row>
       </Container>
