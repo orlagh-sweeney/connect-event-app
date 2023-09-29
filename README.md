@@ -693,7 +693,6 @@ Images were sourced from the following resources:
 - Canva:
     - Canva was used to create the a custom upload image icon.
 
-
 ### Code
 - [Code Institute](https://codeinstitute.net/de/):
     - The Code Institute 'Moments' walkthrough projects was used as inspiration for this project. Elements of the 'Moments' project were used and adapted to suit this project.
