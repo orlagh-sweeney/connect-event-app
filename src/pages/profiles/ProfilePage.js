@@ -84,7 +84,7 @@ const ProfilePage = () => {
           </p>
         </Col>
         {is_owner && (
-          <Col lg={3} className="text-lg-right">
+          <Col className="text-lg-right">
             <ProfileEditDropdown id={profileData?.id} />
           </Col>
         )}
