@@ -160,9 +160,9 @@ Details on the models used in this project can be found in the back-end reposito
     - Avatar.js: 
         Displays user avatars in the Navbar.js and ProfilePage.js
     - Dropdown.js:
-        Used to display a dropdown menu on Event.js and ProfilePage.js
+        Used to display a dropdown menu on Event.js, Comment.js and ProfilePage.js
     - Event.js:
-        Display event informations on EventPage.js and EventsPage.js
+        Displays event information on EventPage.js, EventsPage.js and ProfilePage.js
     - EventsPanel.js:
         Displays upcoming events on EventsPage.js and ProfilePage.js
     - Asset.js:
