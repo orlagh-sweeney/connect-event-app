@@ -1,19 +1,19 @@
 # Connect Bcn
 
-<image src="" width="700px"></image>
+<image src="src/assets/readme/readme-image.png" width="700px"></image>
 
-Connect Bcn is an event planning React application. Users can carry out the following actions on the site:
+Connect Bcn is an event planning React application. Users can carry out the following CRUD actions on the site:
 1. Create an account and login.
 2. View, search and filter events. 
 3. Create, edit and delete events
-4. Create, edit and delete comments.
+4. View,reate, edit and delete comments.
 6. Like/unlike comments.
 7. Attend/unattend events. 
 8. Edit their profile page. 
 
 This project has been developed as my 5th Portfolio Project for my Diploma in Full Stack Software Development - Advanced Frontend with Code Institute. 
 
-The project can be viewed here: [Connect Bcn]()
+The deployed project can be viewed here: [Connect Bcn](https://connect-event-app-ce7fadd5fd4c.herokuapp.com/)
 
 The back-end repository for this full stack application can be found here: [event-app-api](https://github.com/orlagh-sweeney/event-app-api)
 
@@ -26,7 +26,7 @@ The back-end repository for this full stack application can be found here: [even
     - [Methodology](#methodology)
     - [Models](#models)
     - [Wireframes](#wireframes)
-    - [Components](#components)
+    - [Components](#react-components)
 3. [Features](#features)
     - [NavBar](#navbar)
     - [Search Bar](#search-bar)
@@ -100,7 +100,7 @@ The back-end repository for this full stack application can be found here: [even
 20. As a site user I can see similar events so that I can have increased choice of events to attend.
 
 #### The ProfilePage
-21. As a logged in use I can see other peoples profiles so that I can learn more about them.
+21. As a logged in user I can see other peoples profiles so that I can learn more about them.
 22. As a logged in user I can see stats on a user profile so that I can learn more about them.
 23. As a logged user I can see a list of events a user has organised so that I can attend more of their events.
 24. As a profile owner I can edit my profile so that I can update my data.
@@ -110,8 +110,8 @@ The back-end repository for this full stack application can be found here: [even
 The following user stories will be implemented in the next iteration:
 1. As a logged in user I can save events so that I can decide later if I want to go.
 2. As a profile owner I can see my saved events so that I can review them.
-3. As a logged in user I can see suggested events based on my interests so that I can join them.
-4. As a logged in user I can see suggested events based on my interests so that I can join them
+3. As a profile owner I can add interests to my profile so that I can have a customised experience.
+4. As a logged in user I can see suggested events based on my interests so that I can join them.
 
 ### Colour Scheme
 The website uses a clean, white look so information is easily disgestable. Blue and Orange were chosen as the main colours for buttons and headings etc. Orange gives the idea of creativity, happiness and positive energy, while blue gives the idea of loyalty, confidence and reliabilty. These are the charateristics behind the ConnectBcn application. 
@@ -129,7 +129,7 @@ The following colours are used in the project:
 ### Methodology
 The project was planned and implemented following agile methodology principles. GitHub Projects was used to manage and document this process.
 
-The GitHub project can be viewed here: [Connect Event App User Stories]()
+The GitHub project can be viewed here: [Connect Event App User Stories](https://github.com/users/orlagh-sweeney/projects/6)
 
 EPICS were defined using GitHub milestones and each User Story was assigned to one of the following milestones:
 - Navigation and Authentication
@@ -146,7 +146,7 @@ Following MoSCoW Priortisation principles, each User Story was assigned a tag fr
 - Won't Have
 
 ### Models
-Detail on the models used in this product can be found in the back-end repository: [event-app-api](https://github.com/orlagh-sweeney/event-app-api) 
+Details on the models used in this project can be found in the back-end repository: [event-app-api](https://github.com/orlagh-sweeney/event-app-api) 
 
 ### Wireframes
 - [Balsamiq](https://balsamiq) was used to develop wireframes for mobile and desktop in the planning stage of the website. <br>
@@ -155,7 +155,7 @@ Detail on the models used in this product can be found in the back-end repositor
     - Event Create Form Page: <br> <image src="src/assets/readme/wireframe-create-desk.png" width="600px"></image> <br> <image src="src/assets/readme/wireframe-create-mob.png" width="300px"></image>
     - Profile Page: <br> <image src="src/assets/readme/wireframe-profile-desk.png" width="600px"></image> <br> <image src="src/assets/readme/wireframe-profile-mob.png" width="300px"></image>
 
-### Components
+### React Components
 - The project was built using React and incorporates a series of reusbable react components including the following:
     - Avatar.js: 
         Displays user avatars in the Navbar.js and ProfilePage.js
@@ -173,9 +173,9 @@ Detail on the models used in this product can be found in the back-end repositor
 ## Features
 ### NavBar
 - The website has a responsive navbar component. 
-- The navbar conditionally renders navlink based on the user logged in status.
+- The navbar conditionally renders navlinks based on the users logged in status.
 - Logged out users can see Home, About, Sign in and Sign up navlinks.
-- Logged in user can see Home, About, Create Event, Profile and Sign out navlinks. <br>
+- Logged in users can see Home, About, Create Event, Profile and Sign out navlinks. <br>
 <br><image src="src/assets/readme/navbar.png" width="600px"></image>
 
 ### Home
@@ -184,7 +184,7 @@ Detail on the models used in this product can be found in the back-end repositor
 
 ### Search Bar
 - The home page has a search bar where user can type a query which is checked against event names and event owners.
-<br><image src="src/assets/readme/navbar.png" width="600px"></image> 
+<br><image src="src/assets/readme/search.png" width="600px"></image> 
 
 ### Events Filter
 - The home page has a filter menu which filters events based on event type. 
@@ -211,7 +211,7 @@ Detail on the models used in this product can be found in the back-end repositor
 <br><image src="src/assets/readme/eventdetail.png" width="600px"></image> 
 
 ### Similar Events 
-- Similar events are displayed using react bootstrap cards: this is the SimilarEvents component.m
+- Similar events are displayed using react bootstrap cards: this is the SimilarEvents component.
 - Up to 3 events will be shown. 
 - The user can click on the event which will bring them to the relevant event page.
 <br><image src="src/assets/readme/similarevents.png" width="600px"></image> 
@@ -238,7 +238,7 @@ Detail on the models used in this product can be found in the back-end repositor
 ### Profile Page
 - Each user has a unique profile page. 
 - The profile page diplays user information, user stats and events that the profile owner has organised. 
-- The profile owner can also see the Events Panel display 3 upcoming events. 
+- The profile owner can also see the Events Panel displaying 3 upcoming events. 
 <br><image src="src/assets/readme/profilepage.png" width="600px"></image> 
 
 ### Edit Profile Form
@@ -286,7 +286,7 @@ Detail on the models used in this product can be found in the back-end repositor
 - [Heroku](https://dashboard.heroku.com/login): this was used to host and deploy the finished project.
 - [Chrome DevTools](https://developer.chrome.com/docs/devtools/): this was used throughout the project to check responsiveness and debug. 
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/): this was used to validate custom CSS code. 
-- [JSHint](https://jshint.com/): this was used to validate Javascript code. 
+- [ESLint](https://eslint.org/): this was used to validate JSX code. 
 - [Responsive Design Checker](https://www.responsivedesignchecker.com/): this was used to check responsiveness on various device sizes. 
 - [Am I Respsonsive?](https://ui.dev/amiresponsive): this was used to create an image to show how the site looks on different device sizes for this README file. 
 
@@ -323,8 +323,8 @@ Detail on the models used in this product can be found in the back-end repositor
     - When a valid form is submitted the user is redirected to their new event page. 
 9. As a site user I can view event so that I can see more information about it.
     - Site users can visit event an page and read futher information about it.
-    - The correct event date loads when a user visits an event page. 
-10. As a logged in user I can choose to attend and event or not so that the organiser know how many people are going.
+    - The correct event data loads when a user visits an event page. 
+10. As a logged in user I can choose to attend an event or not so that the organiser know how many people are going.
     - Logged in users can click on the attending button to attend or unattend events.
     - Logged out users are prompted to sign in if they want to register for an event.
 
@@ -340,8 +340,8 @@ Detail on the models used in this product can be found in the back-end repositor
 14. As a site user I can continuously scroll through events so that I don't have to click on 'next page'.
     - Events continously load from the API without the need to click next.
     - The user can continously scroll through events. 
-15. As a logged in user I can see my upcoming so that I can find them easily.
-    - Logged in users can see an event panel.
+15. As a logged in user I can see my upcoming events so that I can find them easily.
+    - Logged in users can see the EventPanel.
     - The event panel shows the 3 nearest events that they are attending. 
 
 #### The EventPage
@@ -350,49 +350,52 @@ Detail on the models used in this product can be found in the back-end repositor
     - The edit event button loads a pre-populated form with the existing event data.
     - On submit the event data is updated correctly.
 17. As a event owner I can delete an event so that it can be cancelled.
-    - Event owner can access the delete event button.
+    - Event owners can access the delete event button.
     - The event is deleted from the databased.
 18. As a logged in user I can create, edit and delete comments so that I can interact events.
-    - Logged in user can access the create comment form. 
+    - Logged in users can access the create comment form. 
     - Comment owner can access comment edit and delete buttons.
 19. As a logged in user I can like and unlike comments so that I can show support for the conversation.
-    - Logged in user can use the like button to like and unlike comments.
+    - Logged in users can use the like button to like and unlike comments.
     - Logged out users are prompted to sign in to like a comment. 
 20. As a site user I can see similar events so that I can have increased choice of events to attend.
     - Site users can see a list of similar events. 
     - Correct event types are loaded in the similar events component. 
 
 #### The ProfilePage
-21. As a logged in use I can see other peoples profiles so that I can learn more about them.
+21. As a logged in user I can see other peoples profiles so that I can learn more about them.
     - Logged in users can access user profile pages.
     - The correct user profile data loads. 
 22. As a logged in user I can see stats on a user profile so that I can learn more about them.
     - Logged in user can see stats for each profile. 
-    - The total number of evnets organised and attended are displayed. 
+    - The total number of events organised and attended are displayed. 
 23. As a logged user I can see a list of events a user has organised so that I can attend more of their events.
     - Logged in users can see all the events that a user has organised. 
-    - Uses can choose to attend these events. 
+    - Users can choose to attend these events. 
 24. As a profile owner I can edit my profile so that I can update my data.
-    - Profile owners can access the profile drop down menu.
+    - Profile owners can access the profile dropdown menu.
     - The edit password button brings the profile owner to the edit password form. 
     - The edit username button brings the profile owner to the edit username form.
     - The edit profile button brings the profile owner to the edit profile form.
 25. As a profile owner I can see my upcoming events so that I can keep track of what I am attending.
-    - Profile owner can see a list of events they are attending.
-    - The event panel display the correct event for the profile owner. 
+    - Profile owners can see a list of events they are attending.
+    - The EventPanel displays the correct events for the profile owner. 
 
 ### Code Validation
-The following validators were used to test the code:
-CSS Validation:
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/): No errors were reported when passing the final CSS code through the validator. <br>
-JSX Validation:
-- [ESLint](https://jshint.com/): No errors were reported when passing the final JavaScript code through the validator. <br>
+The following validators were used to test the code:<br>
+- Custom CSS Validation:
+    - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/): No errors were reported when passing the final CSS code through the validator. <br>
+- JSX Validation:
+    - [ESLint](https://jshint.com/): No errors were reported when passing the final JavaScript code through the validator. <br>
 
 ### Accessibility
 [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) was used to check the accessibility of the site and to see if there were issues. 
 
-Further investigation into improves page performance will be carried out.
-Both the Create Event and and Edit Event page lost accessibility marks due to lack of form labels, however the forms do use react-bootstrap form labels. Further investigation is needed to understand why lighthouse is not registering these labels. 
+Accessibility comments:<br>
+According to Lighthouse, both the Create Event and and Edit Event page lost accessibility marks due to lack of form labels, however the forms do use react-bootstrap form labels. Further investigation is needed to understand why lighthouse is not registering these labels.
+
+Performance comments:<br>
+Further investigation into improving page performance will be carried out.<br>
 
 Lighthouse Reports:<br>
 Home Page: <br> <image src="src/assets/readme/lighthouse-home.png" width="600px"></image><br>
@@ -421,8 +424,8 @@ Relevant component: NavBar.js
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
 Logo | When the logo is clicked, the user is brought to the home page | PASS
-Authenticated user | If a user is logged in, the navigation menu displays Home, Create Event, Profile and Sign Out nav links | PASS
-Unauthenticated user | If a user is not logged in, the navigation menu displays Home, Sign In and Sign Up nav links | PASS
+Authenticated user | If a user is logged in, the navigation menu displays Home, About, Create Event, Profile and Sign Out nav links | PASS
+Unauthenticated user | If a user is not logged in, the navigation menu displays Home, About, Sign In and Sign Up nav links | PASS
 Mobile menu | On mobile devices, a burger menu is used to display navlinks | PASS
 Mobile menu close | When a user clicks a navlink on the mobile menu the menu closes | PASS
 Home nav link | Brings the user to the home page | PASS
@@ -431,8 +434,8 @@ Sign Up nav link | Brings the user to the signup page | PASS
 Sign In nav link | Brings the user to the login page | PASS
 Sign Out nav link | Signs the user and returns the user to the home page | PASS
 Profile nav link | Brings the user to their own proile page | PASS 
-Create Event nav link | Brings logged in users to the /events/create | PASS
-Logout success message | The user is shown a message that they have been signout | PASS
+Create Event nav link | Brings logged in users to /events/create | PASS
+Logout success message | The user is shown a message that they have signed out | PASS
 
 #### Home:
 Relevant component: EventsPage
@@ -463,14 +466,14 @@ No results | If there are no matching results for a given filter, a message is d
 Relevent component: Event
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
-Card renders | The event card renders on the home page, event detail page, and user profile page | PASS
+Card renders | The event card renders on the home page(EventsPage), EventPage, and user ProfilePage | PASS
 Event data | The correct event data is displayed on the event card | PASS
 
 #### Attending Button:
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
 Logged out user - button text | The button text says 'Register' | PASS
-Logged out user - button colour | Blue' | PASS
+Logged out user - button colour | Blue | PASS
 Logged out user - message overlay | The message reads 'Log in to attend this event' | PASS
 Logged in user (not registered) - button text | If a user has not registered for an event the button says 'Register' | PASS
 Logged in user (not registered) - button colour | Blue | PASS
@@ -499,9 +502,9 @@ Relevant component: EventPage
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
 Unique url | Each event detail page has a unique url using the event id | PASS
-Correct data laods | The event page load the correct event data | PASS
-Comments Component | The event page renders the comment component | PASS
-Similar Events Component | The event page renders the similar events component | PASS
+Correct data laods | The event page loads the correct event data | PASS
+Comments Component | The event page renders the Comments component | PASS
+Similar Events Component | The event page renders the SimilarEvents component | PASS
 DropdownMenu component | If the current user is the event owner, the DropdownMenu component renders. This component displays the edit and delete event buttons | PASS 
 Edit Event Button | Brings the event owner to the Edit Event Form | PASS
 Delete Event Button | Displays a modal asking the event owner to confirm they want to delete the event | PASS
@@ -525,9 +528,8 @@ Create event form | The form loads with the correct form fields | PASS
 Required fields | If the user does not complete a required field they are shown a message that it needs to be completed | PASS 
 Errors | Appropriate errors relating to the input and image upload fields are displayed to the user | PASS
 Create Event Button | Adds the event to the database and redirects the user to the new event page | PASS
-Success message | The user is shown a message that their event has been created | PASS
 Cancel Button | Returns the user back to the page that they were previously on | PASS
-Success message | The owner is shown a message that their event has been created | PASS
+Success message | The user is shown a message that their event has been created | PASS
 
 #### Edit Event Form:
 Relevant componet: EventEditForm
@@ -537,14 +539,14 @@ Event owner | If the user is the event owner, the edit event page loads | PASS
 Unauthenticated user | If the user is not logged in and/or is not the event owner, the user is redirected to the home page | PASS
 Pre-populated form fields | The form loads and is pre-populated with the correct data from the database | PASS 
 Update Button | Updates the event data in the database and redirects the owner back to the newly updated event page | PASS
-Success message | The owner is shown a message that their event has been submitted | PASS
+Success message | The owner is shown a message that their event has been updated | PASS
 
 #### Comments:
 Relevant components: Comment, CreateCommentForm, EditCommentForm
 TEST       | DESIRED RESULT          | PASS/FAIL |
 ---------- | ----------------------- | --------- |
 Component Diplay | The comment component loads within the EventPage | PASS
-Correct comments load | The componet displays the correct comments relating to the event | PASS
+Correct comments load | The component displays the correct comments relating to the event | PASS
 Ordering | Comments are displayed with the newest comments at the top | PASS
 No Comments | If there are no comments, a message displayed to the user | PASS
 Like Button | Each comment displays a like button | PASS
@@ -566,7 +568,7 @@ TEST       | DESIRED RESULT          | PASS/FAIL |
 Display | Both logged in and logged out users can see the like button and like count | PASS
 Logged out users | Logged out users are shown a prompt to login if they want to like comments | PASS
 Logged in users | Logged in users can click the like button | PASS
-On click | When a user likes comment the heart changes to a solid heart icon. When a user unlikes a comment the heart changes back to a not-solid heat icon | PASS
+On click | When a user likes comment the heart changes to a solid heart icon. When a user unlikes a comment the heart changes back to a hollow heart icon | PASS
 Like count | When a comment is liked, the likes count increases by 1. When a comment is unliked, the comment count decreases by 1. 
 Comment owners | Comment owners cannot like their own comment. A message is displayed to tell them. | PASS
 
@@ -638,17 +640,17 @@ Success message | The user is shown a message that they have signed in | PASS
 1. Filter and Search Query Bug:
 Initially the search and filter query on EventsPage would not work together in the same URL. This was due to a typo.
 2. Date Format Bug:
-On the Edit Event Form, the event date retrieved from the API did not match they required format for React. To resovle this issue I installed the days.js react library to reformat the date to be displayed in the form for the user. 
+On the EventEditForm, the event date retrieved from the API did not match the required format for React. To resovle this issue I installed the days.js react library to reformat the date so it could be retrieved and displayed in the form for the user. 
 <br><image src="src/assets/readme/bug-eventcreate.png" width="600px"></image><br>
 3. Event Create Form Bug: 
-When filling in the EventCreate form, if the user was creating a 'Sport' event and did not need to manaully select an event category with a click (as 'Sport' is the first option), then no event category was being registered on submit. To fix this I added an extra option field to prompt the user to select an event category to avoid this issue. 
+When filling in the EventCreateForm, if the user was creating a 'Sport' event and did not need to manaully select an event category with a click (as 'Sport' is the first option), then no event category was being registered on submit. To fix this I added an extra option field to prompt the user to select an event category to avoid this issue. 
 <br><image src="src/assets/readme/bug-eventedit.png" width="600px"></image><br>
 4. Console Errors:
-A series of console errors we all addressed throughout the project including error relating to unMounted components and invalid DOM nesting. These errors were fixed and no longer appear in the console. 
+A series of console errors we all addressed throughout the project including errors relating to unMounted components and invalid DOM nesting associated with react-bootstrap elements. These errors were fixed and no longer appear in the console. 
 
 #### Unresolved Bugs:
 1. Similar Events: 
-Currently, the SimilarEvents panel displays does not filter out the current event from the similar events list. This issue will be addressed in the next iteration of this project. 
+Currently, the SimilarEvents panel does not filter out the current event from the similar events list. This issue will be addressed in the next iteration of this project. 
 
 ## Deployment
 The program was developed in Gitpod. It was then commited and pushed to GitHub.
@@ -689,7 +691,8 @@ Images were sourced from the following resources:
 
 
 ### Code
-The Code Institute 'Moments' walkthrough projects was used as inspiration for this project. Elements of the 'Moments' project were used and adapted to suit this project.
+- [Code Institute](https://codeinstitute.net/de/):
+    - The Code Institute 'Moments' walkthrough projects was used as inspiration for this project. Elements of the 'Moments' project were used and adapted to suit this project.
 
 ## Acknowledgements
 - Thank you to my mentor Marcel for his feedback and suggestions at each stage of the project.
