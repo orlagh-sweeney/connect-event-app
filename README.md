@@ -685,6 +685,10 @@ Images were sourced from the following resources:
         - [people-on-the-hill-overlooking-the-city-5350999/](https://www.pexels.com/photo/people-on-the-hill-overlooking-the-city-5350999/) by [Mario Schmidt](https://www.pexels.com/@msbln/)
         - [laughing-young-diverse-girlfriends-dancing-and-drinking-beer-during-event-5935240/](https://www.pexels.com/photo/laughing-young-diverse-girlfriends-dancing-and-drinking-beer-during-event-5935240/) by [Kampus Production](https://www.pexels.com/@kampus/)
         - [women-exercising-at-the-beach-9004309/](https://www.pexels.com/photo/women-exercising-at-the-beach-9004309/) by [olia danilevich](https://www.pexels.com/photo/women-exercising-at-the-beach-9004309/)
+        - [dog-sitting-in-front-of-a-woman-8057585/](https://www.pexels.com/photo/dog-sitting-in-front-of-a-woman-8057585/) by [Kampus Production](https://www.pexels.com/@kampus/) 
+        - [photo/opened-book-2099691/](https://www.pexels.com/photo/opened-book-2099691/) by [Sumit Mathur](https://www.pexels.com/@smathur910/)
+        - [photo-of-woman-using-laptop-3194518/](https://www.pexels.com/photo/photo-of-woman-using-laptop-3194518/) by [Canva Studio](https://www.pexels.com/@canvastudio/)
+        - [man-in-black-jacket-singing-while-playing-guitar-6173832/](https://www.pexels.com/photo/man-in-black-jacket-singing-while-playing-guitar-6173832/) by [RDNE Stock project](https://www.pexels.com/@rdne/)
 
 - Canva:
     - Canva was used to create the a custom upload image icon.
