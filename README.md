@@ -697,6 +697,15 @@ Images were sourced from the following resources:
 ### Code
 - [Code Institute](https://codeinstitute.net/de/):
     - The Code Institute 'Moments' walkthrough projects was used as inspiration for this project. Elements of the 'Moments' project were used and adapted to suit this project.
+    - Files from the 'Moments' walkthrough project which have been used without modification include:
+        - axiosDefaults.js
+        - Asset.js
+        - Avatar.js
+        - CurrentUserContext.js
+        - useClickOutsideToggle.js
+        - useRedirect.js
+        - SignInForm.js and SignUpForm.js logic
+        - utils.js
 
 ## Acknowledgements
 - Thank you to my mentor Marcel for his feedback and suggestions at each stage of the project.
